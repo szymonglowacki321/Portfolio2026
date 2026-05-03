@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style2.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <title>SZYMON GŁOWACKI</title>
+</head>
+
+
+<pre id="asciiCanvas"></pre>
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+  
+    const buttons = document.querySelectorAll('.lang-btn');
+    const texts = document.querySelectorAll('.lang-text');
+  
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+  
+        // aktywny button
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+  
+        const lang = btn.dataset.lang;
+  
+        // zmiana tekstu
+        texts.forEach(t => t.classList.remove('active'));
+  
+        const target = document.getElementById(lang + '-text');
+        if (target) {
+          target.classList.add('active');
+        }
+  
+      });
+    });
+  
+  });
+  </script>
+
+
+
+
+
+<body>
+
+  
+  
+
+  <div class="links">
+
+
+    
+
+    <div class="codegithub">
+      
+    
+      <!--<div id="title">MY PORTFOLIO</div> -->
+      
+      
+     <div class="text-switcher"data-aos="fade-right" data-aos-duration="9000" data-aos-delay="700" >
+
+      <!-- 🔥 BUTTONY -->
+      <div class="lang-buttons">
+
+        <div id="title">MY PORTFOLIO</div>
+        <button class="lang-btn active" data-lang="pl">PL</button>
+        <button class="lang-btn" data-lang="en">ENG</button>
+      </div>
+    
+      <!-- 🔥 TEKSTY -->
+      <div class="text-container">
+    
+        <p id="pl-text" class="lang-text active">
+          Cześć, jestem Szymon Głowacki — kreatywny projektant z Szczecina. Mam 28 lat i całe życie towarzyszyła mi sztuka: od wczesnych lat chodziłem na zajęcia z rysunku, a z czasem rozwinąłem swoje pasje w kierunku graffiti i tworzenia gier komputerowych. To właśnie ta droga ukształtowała mój zmysł estetyczny i wrażliwość na formę, kolor i kompozycję, które dziś przekładam na profesjonalne projekty.
+        </p>
+    
+        <p id="en-text" class="lang-text">
+          Hi, I'm Szymon Głowacki — a creative designer from Szczecin, Poland. I'm 28 years old, and art has been part of my life for as long as I can remember. From an early age I attended drawing classes, and over time my passions grew into graffiti and game development. That journey shaped my aesthetic sensibility and my eye for form, colour, and composition — all of which I now bring into my professional work.
+
+        </p>
+    
+      </div>
+    </div>
+     </div>
+
+
+
+    <!--<ul>
+        <div class="ul" data-aos="fade-right" data-aos-duration="9000" data-aos-delay="700">
+         <img src="SZYMONLOGO.png" height="150">  
+        </div>
+        
+        
+
+    </ul> -->
+
+    
+
+
+    <div class="links">
+
+        <div class="INSTAGRAM" data-aos="zoom-in" data-aos-duration="9000">
+            
+            <a href="codegithub.html">
+        <button id="cameraButton2" class="neon-button">LOGO/AR</button>
+             </a>
+        
+     </div>
+    
+
+        <div class="GAME" data-aos="zoom-in" data-aos-duration="9000">
+
+            <a href="gamedev.html">
+            <button id="cameraButton3" class="neon-button">GAME DEV</button>
+            </a>
+
+        
+        
+        </div>
+
+
+        <div class="NFT" data-aos="zoom-in" data-aos-duration="9000">
+
+            <a href="nftcrypto.html">
+            <button id="cameraButton4" class="neon-button">PHOTOSHOP</button>
+            </a>
+
+        
+        </div>
+
+        <!--<div class="D" data-aos="zoom-in" data-aos-duration="9000">
+
+            <a href="3dmodels.html">
+            <button id="cameraButton5" class="neon-button">CASINO</button>
+            </a>
+
+        
+        </div> -->
+
+         
+        <div class="axis">
+            
+          <img src="./pngs/yzx.png" height="65" title="logo">
+
+        </div>
+
+
+
+        <div class="TEL">
+            
+        
+
+            <h2><ion-icon name="call-outline"></ion-icon>733743446</h2>
+           
+            <h2><ion-icon name="mail-outline"></ion-icon>szymonglowacki321@gmail.com</h2>
+
+
+    </div>
+
+    
+      
+      
+
+   <!--<div class="stars">
+   
+   <div id="particles-js"></div>
+   <script type="text/javascript" src="particles.js"></script>
+   <script type="text/javascript" src="app2.js"></script>
+   </div> 
+
+    -->
+  
+    
+    <div class="scene"></div>
+
+    <script src="./three.min.js"></script>
+    <script src="./GLTFLoader.js"></script>
+    <script src="./app.js"></script>
+    <script src="./threex.domevents.js"></script>
+    <script src="./OrbitControls.js"></script>
+ 
+ 
+    <a class="socials" href="https://www.linkedin.com/in/szymon-g%C5%82owacki-673424255/" target="_blank">
+        
+        <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+
+    <a class="socials2"   href="https://github.com/szymonglowacki321" target="_blank" >
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    
+
+        <a class="cv" href="CV2026.pdf" download>  
+               
+
+            <ion-icon name="download-outline">cv</ion-icon>
+
+        </a>
+
+        
+    
+   
+         
+        
+
+    
+
+
+    <button id="cameraButton" >View 3D Object</button>
+
+    <style>
+        #cameraButton {
+          background-color: rgba(255, 255, 255, 0);
+          color: rgb(255, 255, 255);
+          border: none;
+          
+          height: 50px;
+          text-align: center;
+          font-size: 25px;
+          position: absolute;
+          top: 95%;
+          left: 65%;
+          transform: translate(-50%, -50%);
+          z-index: 3;
+          
+        }
+      
+        #cameraButton:hover {
+            color: #00ffd5;
+          cursor: pointer;
+        }
+      </style>
+
+
+    <script>
+      let clicks = 0;
+      const initialCameraPosition = {...camera.position};
+    
+      document.getElementById("cameraButton").addEventListener("click", function onMouseClick(event) {
+        if (clicks < 3) {
+          camera.position.x -= 300;
+          clicks++;
+        } else {
+          camera.position.x = initialCameraPosition.x;
+          clicks = 0;
+        }
+      });
+    </script>
+
+
+
+
+
+
+
+<div id="button-container">
+<button id="color-button" >Change Color</button>
+</div>
+
+    <style>
+        #color-button {
+          background-color: rgba(255, 255, 255, 0);
+          color: rgb(255, 255, 255);
+          border: none;
+          
+          height: 50px;
+          text-align: center;
+          font-size: 25px;
+          position: absolute;
+          top: 95%;
+          left: 35%;
+          transform: translate(-50%, -50%);
+          z-index: 3;
+          
+        }
+      
+        #color-button:hover {
+            color: #00ffd5;
+          cursor: pointer;
+
+          
+
+        }
+      </style>
+
+
+
+
+    <script>
+
+     var button = document.getElementById("color-button");
+      var click = 0;
+
+     button.addEventListener("click", function() {
+        clicks++;
+        if (clicks % 4 === 1) {
+          document.body.style.background = "linear-gradient(to right top, #f81313, rgb(99,99,99))";
+        } else if (clicks % 4 === 2) {
+          document.body.style.background = "linear-gradient(to right top, #056b3e , rgb(99,99,99))";
+
+        } else if (clicks % 4 === 3) {
+          document.body.style.background = "linear-gradient(to right top, black , rgb(99,99,99))";
+
+        } else {
+          document.body.style.background = "linear-gradient(to right top, rgb(67, 67, 67), rgb(99,99,99))";
+        }
+    });
+
+     
+    </script>
+   
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+
+<script>
+
+
+"use strict";
+
+const NUM_PARTICLES = 200;
+const MAX_OPACITY = 0.55;
+const FADE_DELAY = 1500;
+const FADE_SPEED = 0.009;
+
+let globalOpacity = 0;
+let lastMoveTime = 0;
+let mouse_x = window.innerWidth / 2;
+let mouse_y = window.innerHeight / 2;
+let smooth_x = mouse_x;
+let smooth_y = mouse_y;
+let lastMouseX = mouse_x;
+let lastMouseY = mouse_y;
+let mouseSpeed = 0;
+
+const canvas = document.createElement("canvas");
+canvas.style.cssText = `
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+`;
+document.body.prepend(canvas);
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+document.addEventListener("mousemove", (e) => {
+  mouse_x = e.clientX;
+  mouse_y = e.clientY;
+  lastMoveTime = Date.now();
+});
+
+// ✦ GWIAZDY
+const STAR_COUNT = 50;
+const stars = [];
+for (let i = 0; i < STAR_COUNT; i++) {
+  stars.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    r:     Math.random() * 1.2 + 0.1,
+    alpha: Math.random() * 0.5 + 0.1,
+    twinkleSpeed:  Math.random() * 0.02 + 0.005,
+    twinkleOffset: Math.random() * Math.PI * 2,
+  });
+}
+
+function drawStars() {
+  for (let s of stars) {
+    const twinkle = Math.sin(Date.now() * s.twinkleSpeed + s.twinkleOffset) * 0.01;
+    ctx.save();
+    ctx.globalAlpha = Math.max(0, s.alpha + twinkle);
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `hsl(${210 + Math.random() * 40}, 80%, 90%)`;
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+// 🌌 CZĄSTECZKI
+class Particle {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.vx = 0;
+    this.vy = 0;
+    this.offset   = Math.random() * 10000;
+    this.size     = Math.random() * 1.0 + 0.3;
+    this.hue      = Math.random() * 40 + 190;
+    this.alpha    = 0;
+    this.trail    = [];
+
+    // każda cząsteczka ma preferowaną odległość od kursora — małą
+    this.orbitR   = Math.random() * 100 + 30;  // 30–130px
+    this.spinSign = Math.random() > 0.5 ? 1 : -1;
+    this.pull     = Math.random() * 0.12 + 0.10; // siła przyciągania
+  }
+
+  update() {
+    let dx   = smooth_x - this.x;
+    let dy   = smooth_y - this.y;
+    let dist = Math.sqrt(dx * dx + dy * dy) + 0.001;
+
+    const ndx = dx / dist;
+    const ndy = dy / dist;
+
+    // przyciąganie do kursora
+    this.vx += ndx * this.pull;
+    this.vy += ndy * this.pull;
+
+    // wir — proporcjonalny do odległości od orbitR
+    const factor = Math.min(dist / this.orbitR, 1.2);
+    const spin   = 0.20 * factor * this.spinSign;
+    this.vx += -ndy * spin;
+    this.vy +=  ndx * spin;
+
+    // odpychanie gdy za blisko — tworzy pierścień a nie punkt
+    if (dist < 35) {
+      const r = (35 - dist) / 35;
+      this.vx -= ndx * r * 0.6;
+      this.vy -= ndy * r * 0.6;
+    }
+
+    // organiczny dryt
+    const t = Date.now() * 0.0005;
+    this.vx += Math.sin(t + this.offset) * 0.022;
+    this.vy += Math.cos(t * 0.9 + this.offset) * 0.022;
+
+    this.vx *= 0.96;
+    this.vy *= 0.96;
+
+    this.trail.push({ x: this.x, y: this.y });
+    if (this.trail.length > 10) this.trail.shift();
+
+    this.x += this.vx;
+    this.y += this.vy;
+
+    this.alpha = Math.min(this.alpha + 0.015, globalOpacity * 0.70);
+
+    if (this.x < -50 || this.x > canvas.width  + 50 ||
+        this.y < -50 || this.y > canvas.height + 50) {
+      this.reset();
+    }
+  }
+
+  draw() {
+    // smuga
+    if (this.trail.length > 2) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(this.trail[0].x, this.trail[0].y);
+      for (let i = 1; i < this.trail.length; i++) {
+        ctx.lineTo(this.trail[i].x, this.trail[i].y);
+      }
+      ctx.strokeStyle = `hsla(${this.hue}, 90%, 75%, ${this.alpha * 0.22})`;
+      ctx.lineWidth   = this.size * 0.5;
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // poświata
+    ctx.save();
+    ctx.globalAlpha = this.alpha * 0.35;
+    const glow = ctx.createRadialGradient(
+      this.x, this.y, 0,
+      this.x, this.y, this.size * 6
+    );
+    glow.addColorStop(0, `hsla(${this.hue}, 100%, 80%, 0.4)`);
+    glow.addColorStop(1, `hsla(${this.hue}, 100%, 60%, 0)`);
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size * 6, 0, Math.PI * 2);
+    ctx.fillStyle = glow;
+    ctx.fill();
+    ctx.restore();
+
+    // jądro
+    ctx.save();
+    ctx.globalAlpha = this.alpha * 0.85;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = `hsla(${this.hue + 10}, 100%, 95%, 0.9)`;
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+// 🌫 MGŁAWICA — subtelna #00ffd5
+function drawNebula() {
+  if (globalOpacity < 0.05) return;
+
+  const radius = 130 + mouseSpeed * 1.5;
+
+  const outer = ctx.createRadialGradient(
+    smooth_x, smooth_y, 0,
+    smooth_x, smooth_y, radius * 1.6
+  );
+  outer.addColorStop(0,   `rgba(0, 255, 213, ${globalOpacity * 0.028})`);
+  outer.addColorStop(0.5, `rgba(0, 200, 170, ${globalOpacity * 0.012})`);
+  outer.addColorStop(1,   `rgba(0, 0, 0, 0)`);
+  ctx.save();
+  ctx.fillStyle = outer;
+  ctx.beginPath();
+  ctx.arc(smooth_x, smooth_y, radius * 1.6, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+
+  const inner = ctx.createRadialGradient(
+    smooth_x, smooth_y, 0,
+    smooth_x, smooth_y, radius * 0.45
+  );
+  inner.addColorStop(0,   `rgba(0, 255, 213, ${globalOpacity * 0.055})`);
+  inner.addColorStop(0.6, `rgba(0, 220, 185, ${globalOpacity * 0.018})`);
+  inner.addColorStop(1,   `rgba(0, 0, 0, 0)`);
+  ctx.save();
+  ctx.fillStyle = inner;
+  ctx.beginPath();
+  ctx.arc(smooth_x, smooth_y, radius * 0.45, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+let particles = [];
+for (let i = 0; i < NUM_PARTICLES; i++) {
+  particles.push(new Particle());
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  smooth_x += (mouse_x - smooth_x) * 0.06;
+  smooth_y += (mouse_y - smooth_y) * 0.06;
+
+  const dx = mouse_x - lastMouseX;
+  const dy = mouse_y - lastMouseY;
+  mouseSpeed  = Math.sqrt(dx * dx + dy * dy);
+  lastMouseX  = mouse_x;
+  lastMouseY  = mouse_y;
+
+  const timeSinceMove = Date.now() - lastMoveTime;
+  if (timeSinceMove < FADE_DELAY) {
+    globalOpacity = Math.min(globalOpacity + FADE_SPEED, MAX_OPACITY);
+  } else {
+    globalOpacity = Math.max(globalOpacity - FADE_SPEED * 0.3, 0);
+  }
+
+  drawStars();
+  drawNebula();
+
+  for (let p of particles) {
+    p.update();
+    p.draw();
+  }
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+
+</script>
+
+
+
+    
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+//////document.addEventListener('click', onMouseClick, false); YO
+
+function onMouseClick(event) {
+  let newHouse;
+  let loader = new THREE.GLTFLoader();
+  loader.load('./3d/scene.gltf', function(gltf) {
+    newHouse = gltf.scene.children[0];
+    newHouse.position.x = (event.clientX / window.innerWidth) * 100 - 100;
+    newHouse.position.y = -(event.clientY / window.innerHeight) * 100 + 100;
+    scene.add(newHouse);
+
+    // Add mouse move event listener for new house
+    document.addEventListener('mousemove', onMouseMoveNewHouse(newHouse), false);
+  });
+}
+
+function onMouseMoveNewHouse(newHouse) {
+  return function(event) {
+    newHouse.rotation.y = (event.clientX / window.innerWidth) * 2 * Math.PI;
+    newHouse.rotation.x = (event.clientY / window.innerHeight) * 2 * Math.PI;
+  }
+}
+
+/////////
+
+//const INSTAGRAM = document.querySelector(".INSTAGRAM");
+//const tl = new TimelineMax();
+
+//tl.fromTo(INSTAGRAM, 0.5, {opacity: 0, x:30}, {opacity: 1, x:0}, "-=0.5");
+
+/////
+
+
+//const domEvents = new THREEx.DomEvents(camera, renderer.domElement)
+
+//domEvents.addEventListener(house, 'click', event => {
+  //house.scale.set(3,3,3)
+//})

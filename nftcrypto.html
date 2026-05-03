@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style2.css">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <title>SZYMON GŁOWACKI</title>
+</head>
+
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+  function closeLightbox(e) {
+    if (!e || e.target !== document.getElementById('lb-img')) {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+  </script>
+
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+  
+    const buttons = document.querySelectorAll('.lang-btn');
+    const texts = document.querySelectorAll('.lang-text');
+  
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+  
+        // aktywny button
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+  
+        const lang = btn.dataset.lang;
+  
+        // zmiana tekstu
+        texts.forEach(t => t.classList.remove('active'));
+  
+        const target = document.getElementById(lang + '-text');
+        if (target) {
+          target.classList.add('active');
+        }
+  
+      });
+    });
+  
+  });
+  </script>
+
+
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+  
+    const slides = document.querySelectorAll('.slide');
+    const container = document.querySelector('.video-container');
+  
+    let index = 0;
+    let interval;
+  
+    function showSlide(i){
+      slides.forEach(video => {
+        video.pause();
+        video.classList.remove('active');
+      });
+  
+      slides[i].classList.add('active');
+  
+      // ▶ play video safely
+      const playPromise = slides[i].play();
+      if (playPromise !== undefined) {
+        playPromise.catch(()=>{});
+      }
+  
+      
+    }
+  
+    function nextSlide(){
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+  
+    function prevSlide(){
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    }
+  
+    // 🔥 BUTTONY
+    document.getElementById('next').onclick = () => {
+      nextSlide();
+      resetAuto();
+    };
+  
+    document.getElementById('prev').onclick = () => {
+      prevSlide();
+      resetAuto();
+    };
+  
+    // 🔥 AUTO SLIDE
+    function startAuto(){
+      interval = setInterval(nextSlide, 7000);
+    }
+  
+    function resetAuto(){
+      clearInterval(interval);
+      startAuto();
+    }
+  
+    showSlide(index);
+    startAuto();
+  
+  });
+  </script>
+
+
+
+
+<body>
+
+
+
+
+  
+
+
+  <!-- <div id="video-carousel">
+AR INSTAGRAM FILTERS:
+    <button id="prev">◀</button>
+  
+    <div class="video-container">
+  
+      
+      <video class="slide active" muted playsinline loop>
+        <source src="./arvideo1.mp4" type="video/mp4">
+      </video>
+
+      <video class="slide active" muted playsinline loop>
+        <source src="./arvideo2.mp4" type="video/mp4">
+      </video>
+
+      <video class="slide active" muted playsinline loop>
+        <source src="./arvideo3.mp4" type="video/mp4">
+      </video>
+
+      <video class="slide active" muted playsinline loop>
+        <source src="./arvideo4.mp4" type="video/mp4">
+      </video>
+
+      <video class="slide active" muted playsinline loop>
+        <source src="./arvideo5.mp4" type="video/mp4">
+      </video>
+  
+      <video class="slide" muted playsinline loop>
+        <source src="./arvideo6.mp4" type="video/mp4">
+      </video>
+  
+      <video class="slide" muted playsinline loop>
+        <source src="./arvideo7.mp4" type="video/mp4">
+      </video>
+  
+    </div>
+  
+    <button id="next">▶</button>
+  </div>
+  
+-->
+
+
+
+    <ul>
+        
+        <h1></h1>
+        
+    </ul>
+
+
+    <div class="links">
+
+        <div class="codegithub">
+            
+         
+
+          <!-- <h4>LOGO/AR <img src="./pngs/3dlogos.png" height="140" title="logo"></h4>-->
+        
+
+         <div class="text-switcher">
+
+          <!-- 🔥 BUTTONY -->
+          <div class="lang-buttons">
+
+            
+            <h4>PHOTOSHOP</h4><button class="lang-btn active" data-lang="pl">PL</button>
+            <button class="lang-btn" data-lang="en">ENG</button>
+          </div>
+        
+          <!-- 🔥 TEKSTY -->
+          <div class="text-container">
+        
+            <p id="pl-text" class="lang-text active">
+              Moje doświadczenie i miłość do sztuki dały mi solidne podstawy w dziedzinie sztuk wizualnych i sprawiają, że jestem wyjątkowym projektantem/kreatywnym. Projektowanie jest dużą częścią mojego życia. Moje umiejętności w programach Adobe Photoshop i Adobe Illustrator pozwalają mi tworzyć projekty, które są nie tylko efektowne wizualnie, ale także funkcjonalne i skuteczne. Zaprojektowałem okładki i ulotki, które spotkały się z powszechnym uznaniem. Oprócz moich umiejętności technicznych, posiadam głęboką znajomość zasad projektowania i tego, jak mogą być wykorzystane do tworzenia skutecznych i angażujących projektów. Zawsze uczę się i eksploruję nowe trendy i techniki projektowania, aby być na czele dziedziny i tworzyć projekty, które są świeże i innowacyjne.
+            </p>
+        
+            <p id="en-text" class="lang-text">
+              My experience and love for art have given me a strong foundation in the visual arts and makes me unique designer/creative. Design is an inseparable part of my life. My skills in Adobe Photoshop and Adobe Illustrator enable me to create designs that are not only visually striking but also functional and effective. I have designed covers and flyers that have received widespread acclaim, thanks to my attention to detail, creativity, and technical expertise. In addition to my technical skills, I have a deep understanding of design principles and how they can be used to create effective and engaging designs. I am always learning and exploring new design trends and techniques, in order to stay at the forefront of my field and create designs that are fresh and innovative.
+            </p>
+        
+          </div>
+        </div>
+         </div>
+          
+
+         
+
+
+
+        <div class="TEL">
+            <h2><ion-icon name="call-outline"></ion-icon>733743446</h2>
+           
+            <h2><ion-icon name="mail-outline"></ion-icon>szymonglowacki321@gmail.com</h2>
+         
+
+        </div>
+
+        
+
+        <div class="container" data-aos="zoom-in" data-aos-duration="9000" data-aos-delay="200">
+          
+          <div class="box">
+            <img src="Landscape.jpg" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
+          </div>
+          <div class="box">
+            <img src="transformers reoak ps.jpg" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
+          </div>
+          <div class="box">
+            <img src="st patrick.jpg" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
+          </div>
+          <div class="box">
+            <img src="TN.jpg" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
+          </div>
+          <div class="box">
+            <img src="CLA.jpg" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
+          </div>
+          <div class="box">
+            <img src="slot vol1.jpg" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
+          </div>
+
+
+
+        </div>
+        
+        <!-- Lightbox overlay -->
+        <div class="lb-overlay" id="lightbox" onclick="closeLightbox(event)">
+          <img id="lb-img" src="" alt="">
+          <button class="lb-back" onclick="closeLightbox()">&#8592; Back</button>
+        </div>
+
+
+    </div>
+
+
+
+
+   <!--<div class="stars">
+   <div id="particles-js"></div>
+   <script type="text/javascript" src="particles.js"></script>
+   <script type="text/javascript" src="app2.js"></script>
+   </div>
+
+
+    
+    <div class="scene"></div>
+
+    <script src="./three.min.js"></script>
+    
+    <script src="./app.js"></script>
+    <script src="./threex.domevents.js"></script>
+    <script src="./OrbitControls.js"></script>-->
+ 
+ 
+    <a class="socials" href="https://www.linkedin.com/in/szymon-g%C5%82owacki-673424255/" target="_blank">
+        
+        <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+
+    <a class="socials2" href="https://github.com/szymonglowacki321" target="_blank">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+
+    <a class="cv" href="CV2026.pdf" download>  
+               
+
+      <ion-icon name="download-outline">cv</ion-icon>
+
+  </a>
+
+
+
+    <a href="index.html">
+    <button id="cameraButton">Back</button>
+    </a>
+    <style>
+        #cameraButton {
+          
+          background-color: rgba(255, 255, 255, 0);
+          color: rgb(255, 255, 255);
+          border: none;
+          width: 150px;
+          height: 50px;
+          text-align: center;
+          font-size: 18px;
+          position: absolute;
+          top: 95%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 99;
+          
+        }
+      
+        #cameraButton:hover {
+          color: #00ffd5;
+          cursor: pointer;
+        }
+      </style>
+
+
+    <script>
+      let clicks = 0;
+      const initialCameraPosition = {...camera.position};
+    
+      document.getElementById("cameraButton").addEventListener("click", function onMouseClick(event) {
+        if (clicks < 3) {
+          camera.position.x -= 300;
+          clicks++;
+        } else {
+          camera.position.x = initialCameraPosition.x;
+          clicks = 0;
+        }
+      });
+    </script>
+    
+    
+   
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+    <script>
+      hljs.highlightAll();
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

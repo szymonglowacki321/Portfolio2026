@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>SZYMON GŁOWACKI</title>
+</head>
+<body>
+
+   
+  
+  
+
+
+
+    <ul>
+        
+        <h1></h1>
+        
+    </ul>
+
+
+    
+
+    <div class="links">
+
+        <div class="codegithub">
+            
+         <h4>PHOTOSHOP <img src="./pngs/pslogos.png" height="65" title="logo"></h4>
+          
+         <h5>
+         
+          Moje doświadczenie i miłość do sztuki dały mi solidne podstawy w dziedzinie sztuk wizualnych i sprawiają, że jestem wyjątkowym projektantem/kreatywnym. Projektowanie jest dużą częścią mojego życia. Moje umiejętności w programach Adobe Photoshop i Adobe Illustrator pozwalają mi tworzyć projekty, które są nie tylko efektowne wizualnie, ale także funkcjonalne i skuteczne. Zaprojektowałem okładki i ulotki, które spotkały się z powszechnym uznaniem. Oprócz moich umiejętności technicznych, posiadam głęboką znajomość zasad projektowania i tego, jak mogą być wykorzystane do tworzenia skutecznych i angażujących projektów. Zawsze uczę się i eksploruję nowe trendy i techniki projektowania, aby być na czele dziedziny i tworzyć projekty, które są świeże i innowacyjne.
+          <br>
+          <br>
+          My experience and love for art have given me a strong foundation in the visual arts and makes me unique designer/creative. Design is an inseparable part of my life. My skills in Adobe Photoshop and Adobe Illustrator enable me to create designs that are not only visually striking but also functional and effective. I have designed covers and flyers that have received widespread acclaim, thanks to my attention to detail, creativity, and technical expertise. In addition to my technical skills, I have a deep understanding of design principles and how they can be used to create effective and engaging designs. I am always learning and exploring new design trends and techniques, in order to stay at the forefront of my field and create designs that are fresh and innovative.
+
+        </h5>
+         </div>
+    
+            
+         
+
+
+        <div class="TEL">
+            <h2><ion-icon name="call-outline"></ion-icon>733743446</h2>
+           
+            <h2><ion-icon name="mail-outline"></ion-icon>szymonglowacki321@gmail.com</h2>
+
+          
+            
+        </div>
+
+
+    </div>
+   
+
+    <div class="container" data-aos="zoom-in" data-aos-duration="9000" data-aos-delay="200">
+      <div class="box"><img src="Landscape.jpg" height="180"></div>
+      <div class="box"><img src="transformers reoak ps.jpg" height="180"></div>
+      <div class="box"><img src="st patrick.jpg" height="180"></div>
+      <div class="box"><img src="TN.jpg" height="180"></div>
+      <div class="box"><img src="CLA.jpg" height="180"></div>
+      <div class="box"><img src="slot vol1.jpg" height="180"></div>
+      
+    </div>
+
+    
+    
+
+  <div class="stars">
+   <div id="particles-js"></div>
+   <script type="text/javascript" src="particles.js"></script>
+   <script type="text/javascript" src="app2.js"></script>
+  </div>
+
+
+    
+    <div class="scene"></div>
+
+    <script src="./three.min.js"></script>
+    
+    <script src="./app.js"></script>
+    <script src="./threex.domevents.js"></script>
+    <script src="./OrbitControls.js"></script>
+ 
+ 
+    <a class="socials" href="https://www.linkedin.com/in/szymon-g%C5%82owacki-673424255/" target="_blank">
+        
+        <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+
+    <a class="socials2" href="https://github.com/szymonglowacki321" target="_blank">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="cv" href="cv.pdf" download>  
+               
+
+      <ion-icon name="download-outline">cv</ion-icon>
+
+  </a>
+
+
+
+    <a href="index.html">
+    <button id="cameraButton">Back</button>
+    </a>
+    <style>
+        #cameraButton {
+          background-color: rgba(255, 255, 255, 0);
+          color: rgb(255, 255, 255);
+          border: none;
+          width: 150px;
+          height: 50px;
+          text-align: center;
+          font-size: 18px;
+          position: absolute;
+          top: 95%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 5;
+          
+        }
+      
+        #cameraButton:hover {
+          color: #26ff26;
+          cursor: pointer;
+        }
+      </style>
+
+
+    <script>
+      let clicks = 0;
+      const initialCameraPosition = {...camera.position};
+    
+      document.getElementById("cameraButton").addEventListener("click", function onMouseClick(event) {
+        if (clicks < 3) {
+          camera.position.x -= 300;
+          clicks++;
+        } else {
+          camera.position.x = initialCameraPosition.x;
+          clicks = 0;
+        }
+      });
+    </script>
+    
+    
+   
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

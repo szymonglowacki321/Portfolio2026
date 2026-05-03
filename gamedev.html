@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style2.css">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <title>SZYMON GŁOWACKI</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+
+<style>
+  
+    body::-webkit-scrollbar{
+    display: none;
+  }
+  
+  </style>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+  function closeLightbox(e) {
+    if (!e || e.target !== document.getElementById('lb-img')) {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+  </script>
+
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+  
+    const buttons = document.querySelectorAll('.lang-btn');
+    const texts = document.querySelectorAll('.lang-text');
+  
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+  
+        // aktywny button
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+  
+        const lang = btn.dataset.lang;
+  
+        // zmiana tekstu
+        texts.forEach(t => t.classList.remove('active'));
+  
+        const target = document.getElementById(lang + '-text');
+        if (target) {
+          target.classList.add('active');
+        }
+  
+      });
+    });
+  
+  });
+  </script>
+
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+  
+    const slides = document.querySelectorAll('.slide');
+    const container = document.querySelector('.video-container');
+  
+    let index = 0;
+    let interval;
+  
+    function showSlide(i){
+      slides.forEach(video => {
+        video.pause();
+        video.classList.remove('active');
+      });
+  
+      slides[i].classList.add('active');
+  
+      // ▶ play video safely
+      const playPromise = slides[i].play();
+      if (playPromise !== undefined) {
+        playPromise.catch(()=>{});
+      }
+  
+      
+    }
+  
+    function nextSlide(){
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+  
+    function prevSlide(){
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    }
+  
+    // 🔥 BUTTONY
+    document.getElementById('next').onclick = () => {
+      nextSlide();
+      resetAuto();
+    };
+  
+    document.getElementById('prev').onclick = () => {
+      prevSlide();
+      resetAuto();
+    };
+  
+    // 🔥 AUTO SLIDE
+    function startAuto(){
+      interval = setInterval(nextSlide, 7000);
+    }
+  
+    function resetAuto(){
+      clearInterval(interval);
+      startAuto();
+    }
+  
+    showSlide(index);
+    startAuto();
+  
+  });
+  </script>
+
+
+
+
+<body>
+
+
+
+  <div id="video-carousel2">
+    UNITY GAMEPLAY:
+    <button id="prev">◀</button>
+  
+    <div class="video-container">
+  
+      <!-- 🔻 TU WRZUCASZ FILMY -->
+      <video class="slide active" muted playsinline loop>
+        <source src="./gp1.mp4" type="video/mp4">
+      </video>
+
+      <video class="slide active" muted playsinline loop>
+        <source src="./gp2.mp4" type="video/mp4">
+      </video>
+
+      <video class="slide active" muted playsinline loop>
+        <source src="./gp3.mp4" type="video/mp4">
+      </video>
+
+      <video class="slide active" muted playsinline loop>
+        <source src="./gp4.mp4" type="video/mp4">
+      </video>
+
+      <video class="slide active" muted playsinline loop>
+        <source src="./ani.mp4" type="video/mp4">
+      </video>
+  
+      
+  
+    </div>
+  
+    <button id="next">▶</button>
+  </div>
+
+
+
+
+
+
+
+  <!--<h9>
+    Snippet of my code:
+  <pre>
+    
+    <code class="language=javescript">
+      scene = new THREE.Scene();
+
+const fov = 35;
+const aspect = container.clientWidth / container.clientHeight;
+const near = 0.1;
+const far = 500;
+
+camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+camera.position.set(0, 3, 30);
+
+const ambient = new THREE.AmbientLight(0x404040, 4);
+scene.add(ambient);
+
+const light = new THREE.DirectionalLight(0xffffff,4);
+light.position.set(10,10,10);
+scene.add(light);
+
+renderer = new THREE.WebGLRenderer ({antialias: true, alpha: true});
+renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+
+container.appendChild(renderer.domElement);
+    </code>
+  </pre>
+</h9>
+-->
+
+
+
+
+
+</div>
+
+
+
+<div class="container" data-aos="zoom-in" data-aos-duration="9000" data-aos-delay="200">
+  3D MODELS:
+  <div class="box">
+    <img src="PNCAR22.png" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
+  </div>
+  <div class="box">
+    <img src="PNGCAR.png" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
+  </div>
+</div>
+
+<!-- Lightbox overlay -->
+<div class="lb-overlay" id="lightbox" onclick="closeLightbox(event)">
+  <img id="lb-img" src="" alt="">
+  <button class="lb-back" onclick="closeLightbox()">&#8592; Back</button>
+</div>
+
+    <ul>
+        
+        <h1></h1>
+        
+    </ul>
+
+
+   
+
+
+
+
+         <div class="links">
+
+          <div class="codegithub">
+              
+           <!-- <h4>GAMEDEV <img src="./pngs/gamelogos.png" height="140" title="logo"></h4> -->
+            
+  
+           <div class="text-switcher">
+
+            <h4>GAMEDEV</h4>
+  
+            <!-- 🔥 BUTTONY -->
+            <div class="lang-buttons">
+              <button class="lang-btn active" data-lang="pl">PL</button>
+              <button class="lang-btn" data-lang="en">ENG</button>
+            </div>
+          
+            <!-- 🔥 TEKSTY -->
+            <div class="text-container">
+          
+              <p id="pl-text" class="lang-text active">
+                Fascynuje mnie tworzenie gier — Unity to miejsce, gdzie daję upust swojej kreatywności, gdzie moje modele 3D stają się interaktywne i dają prawdziwą frajdę graczowi. Tworzę gry na PC, w których klimat i atmosfera mają znaczenie. Zależy mi na tym, żeby gracz trafił do świata, który wciąga i zostaje w pamięci. Każdy projekt zaczynam od pomysłu na doświadczenie — mechanika i grafika są narzędziami, nie celem samym w sobie.
+Moje umiejętności wykraczają poza samo programowanie. Tworzę autorskie assety do gier: modele 3D w Blenderze, assety ze skanów 3D rzeczywistych obiektów oraz animacje. Dbam o to, żeby każdy element — od oprawy graficznej po mechaniki rozgrywki — był dopracowany i spójny. Spójność wizualna i klimatyczna to dla mnie fundament każdej dobrej produkcji.
+Koduję w C#, stawiając na czysty i wydajny kod, który zapewnia płynne doświadczenie dla graczy. Tworzę również animacje marketingowe do swoich projektów, które pomagają budować zainteresowanie przed premierą. Równolegle rozwijam się w tworzeniu stron internetowych, co pozwala mi spojrzeć na projekt z szerszej perspektywy. Umiejętność łączenia różnych dziedzin daje mi przewagę — widzę produkt całościowo, nie tylko przez pryzmat jednej specjalizacji.
+Nieustannie uczę się i śledzę nowe technologie, aby być na czele branży.
+              </p>
+          
+              <p id="en-text" class="lang-text">
+                Game development genuinely fascinates me — Unity is the place where I unleash my creativity, where my 3D models become interactive and give players a real sense of fun. I create PC games where atmosphere and mood matter. I want the player to step into a world that pulls them in and stays with them. Every project starts with an idea for an experience — mechanics and visuals are tools, not the goal in themselves.
+My skills go beyond programming. I build original game assets: 3D models in Blender, assets from 3D scans of real-world objects, and animations. I make sure every element — from visuals to gameplay mechanics — is polished and consistent. Visual and atmospheric cohesion is, for me, the foundation of any strong production.
+I code in C#, focusing on clean and efficient code that delivers a smooth experience for players. I also produce marketing animations for my projects to build interest ahead of release. Alongside that, I'm developing my web development skills, which gives me a broader perspective on the overall product. The ability to combine different disciplines is an advantage — I see the product as a whole, not just through the lens of a single specialisation.
+I'm constantly learning and following new technologies to stay current in the industry.
+              </p>
+          
+            </div>
+          </div>
+           </div>
+
+
+
+
+    
+
+        <div class="TEL">
+            <h2><ion-icon name="call-outline"></ion-icon>733743446</h2>
+           
+            <h2><ion-icon name="mail-outline"></ion-icon>szymonglowacki321@gmail.com</h2>
+
+            
+
+            
+        </div>
+
+
+    </div>
+
+
+
+    
+      
+
+    <!-- <div class="div" data-aos="fade-in" data-aos-duration="9000">
+       <h7><img src="nfs okladka strona.png" height="500"></h7>
+     </div>-->
+
+     <h6><video autoplay loop src="ani.mp4"></h6>
+     
+
+  <!--<div class="stars">
+   <div id="particles-js"></div>
+   <script type="text/javascript" src="particles.js"></script>
+   <script type="text/javascript" src="app2.js"></script>
+  </div>
+
+
+    
+    <div class="scene"></div>
+
+    <script src="./three.min.js"></script>
+    
+    <script src="./app.js"></script>
+    <script src="./threex.domevents.js"></script>
+    <script src="./OrbitControls.js"></script> -->
+ 
+ 
+    <a class="socials" href="https://www.linkedin.com/in/szymon-g%C5%82owacki-673424255/" target="_blank">
+        
+        <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+
+    <a class="socials2" href="https://github.com/szymonglowacki321" target="_blank">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+
+    <a class="cv" href="CV2026.pdf" download>  
+               
+
+      <ion-icon name="download-outline">cv</ion-icon>
+
+  </a>
+
+
+    <a href="index.html">
+    <button id="cameraButton">Back</button>
+    </a>
+    <style>
+        #cameraButton {
+          background-color: rgba(255, 255, 255, 0);
+          color: rgb(255, 255, 255);
+          border: none;
+          width: 150px;
+          height: 50px;
+          text-align: center;
+          font-size: 18px;
+          position: fixed;
+          top: 95%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 99;
+          
+        }
+      
+        #cameraButton:hover {
+          color: #00ffd5;
+          cursor: pointer;
+        }
+      </style>
+
+
+    <script>
+      let clicks = 0;
+      const initialCameraPosition = {...camera.position};
+    
+      document.getElementById("cameraButton").addEventListener("click", function onMouseClick(event) {
+        if (clicks < 3) {
+          camera.position.x -= 300;
+          clicks++;
+        } else {
+          camera.position.x = initialCameraPosition.x;
+          clicks = 0;
+        }
+      });
+    </script>
+    
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+    <script>
+      hljs.highlightAll();
+    </script>
+   
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+   <script>
+     AOS.init();
+   </script>
+
+</body>
+</html>
