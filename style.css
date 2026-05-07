@@ -1,599 +1,863 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-  }
 
+/* =========================================================
+   🔥 RESET / GLOBAL
+   ========================================================= */
 
- 
-
-
-  #title {
-    
-    color: white;
-   font-weight: 600;
-   font-size: 5rem;
-   opacity: 1;
-   padding: 0px;
-   padding-left: 0px;
-   
-  }
-
-
-
-
- h2 
- {
-   color: white;
-   font-weight: 600;
-   font-size: 2rem;
-   opacity: 0.9;
-   z-index: 3;
- }
-
-
- h3
- {
-   
-   
-   width: 250px;
-   height: 250;
-   
-   color: white;
-   font-weight: 600;
-   font-size: 0.6rem;
-   opacity: 0.9;
-   position: absolute;
-   text-align: center;
-   
-   z-index: 3;
-
-   background: rgba(0, 55, 234, 0);
-   padding: 10px;
-
- }
-
- h4 
- {
-   color: white;
-   font-weight: 600;
-   font-size: 5rem;
-   opacity: 1;
-   padding: 0px;
-   padding-left: 0px;
-   
- }
-
-
-
- 
-
- h5
- {
-   color: white;
-   font-weight: 600;
-   font-size: 0.99rem;
-   opacity: 0.9;
-   text-align: justify;
-   padding-left: 100px;
-   
- }
- 
-
-  h7
-  {
-    top: 25%;
-    position: absolute;
-    
-    left: 62%;
-  }
-
-   h8{
-    top: 18%;
-    left: 60%;
-    position: absolute;
-    z-index: 2;
-   }
-
-   h9{
-
-     
-
-    color: white;
-    top: 15%;
-    left: 55%;
-    position: absolute;
-    height: 70;
-    padding: 10px;
-    z-index: 5;
-   }
-
- ul
- {
-   color: white;
-   text-align: center;
-   font-weight: 600;
-   font-size: 2rem;
-   opacity: 0.9;
-   position: absolute;
-   top: 2%;
-   left: 2%;
-   
-   z-index: 3;
- }
- 
-
- .stars{
-  z-index: 5;
- }
-
- .scene{
-  z-index: 2;
- }
-
-
- .socials{
- color: white;
- transition: color 0.2s;
- position: fixed;
- top: 30%;
- right: 2%;
-  z-index: 3;
-  font-size: 60px;
- }
- .socials:hover{
-  color: #00ffd5;
- }
-
- .socials2{
-  color: white;
-  transition: color 0.2s;
-   position: fixed;
-   top: 50%;
-   right: 2%;
-   z-index: 3;
-   font-size: 60px;
-  }
-  .socials2:hover{
-    color: #00ffd5;
-  }
-
-  .cv{
-    color: white;
-    transition: color 0.2s;
-     position: fixed;
-     top: 70%;
-     right: 2%;
-     
-     z-index: 3;
-     font-size: 60px;
-    }
-    .cv:hover{
-     color: #00ffd5;
-    }
-
- .INSTAGRAM{
-  position: absolute;
-  top: 37%;
-  right: 82%;
-  z-index: 3;
-  text-align: left;
- }
-
- #cameraButton2 {
-  background-color: rgba(255, 255, 255, 0);
-  color: #00ffd5;
-  border: none;
-  width: 210px;
-  height: 70px;
-  
-  font-size: 30px;
- 
-  z-index: 3;
-  
+/* Reset podstawowy */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#cameraButton2:hover {
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-}
- 
+/* Global body */
+body {
+  font-family: "Source Code Pro", sans-serif;
+  min-height: 100vh;
 
- .GAME{
-  position: absolute;
-  text-align: left;
-  top: 57%;
-  right: 82%;
-  z-index: 3;
- }
+  background: rgb(61, 61, 61);
 
- #cameraButton3 {
-  background-color: rgba(255, 255, 255, 0);
-  color: #00ffd5;
-  border: none;
-  width: 210px;
-  height: 70px;
-  
-  font-size: 30px;
- 
-  z-index: 3;
-  
+  overflow-x: hidden; /* 🔥 blokuje poziomy scroll */
+  overflow-y: auto;
+
+  animation: fadeInPage 0.8s ease;
 }
 
-#cameraButton3:hover {
-  color: rgb(255, 255, 255);
-  cursor: pointer;
+/* Media zawsze responsive */
+img,
+video,
+canvas {
+  max-width: 100%;
+  display: block;
 }
 
+/* =========================================================
+   🔥 ANIMACJA WEJŚCIA
+   ========================================================= */
 
- .NFT{
-  position: absolute;
-  text-align: left;
-  top: 47%;
-  right: 82%;
-  z-index: 3;
- }
-
-  
- #cameraButton4 {
-  background-color: rgba(255, 255, 255, 0);
-  color: #00ffd5;
-  border: none;
-  width: 210px;
-  height: 70px;
-  
-  font-size: 30px;
- 
-  z-index: 3;
-  
-}
-
-#cameraButton4:hover {
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-}
-
-
- .D{
-  position: absolute;
-  top: 67%;
-  right: 82%;
-  z-index: 3;
-  text-align: left;
- }
- 
- #cameraButton5 {
-  background-color: rgba(255, 255, 255, 0);
-  color: #00ffd5;
-  border: none;
-  width: 210px;
-  height: 70px;
- 
-  font-size: 30px;
- 
-  z-index: 3;
-  
-}
-
-#cameraButton5:hover {
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-}
-
-
- .TEL{
-  position: fixed;
-  top: 3%;
-  right: 1%;
-  z-index: 3;
- }
-
-
- .codegithub{
-  position: absolute;
-  top:0%;
-  right:50%;
-  z-index: 3;
-  padding: 10px;
-   
- }
-
-
-
-  body {
-  
-    font-family: "Source Code Pro", sans-serif;
-    overflow: hidden;
-    min-height: 100vh;
-    background: rgb(61, 61, 61);
-    
-    
-  }
-
-  
-  
-
-
-  .scene,
-  canvas {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    
-  }
-
-  
- .axis{
-  right: 0.1%;
-  position: absolute;
- }
-
-
-  .container{
-    
-		width: 90%;
-		padding: 30px;
-		margin: 100px auto;
-		background: rgba(99, 62, 62, 0);
-		display: flex;
-		flex-direction: row;
-		justify-content: left;
-    z-index: 4;
-    position: absolute;
-    top:53%;
-    right: 5%;
-	}
-
-	.box{
-    
-		width: 400px;
-		height: 300px;
-		background: rgba(0, 0, 255, 0);
-    margin: 0px 10px;
-    transition: 1s;
-    z-index: 4;
-
-	}
-	.box:hover{
-		transform: scale(1.3);
-		background: #003d8700;
-		z-index: 5;
-		box-shadow: 2px 2px 2px rgba(0, 0, 0, 0);
-		
-	}
-
-
-
-  
-
-
-  :root {
-    --clr-neon: #00ffd5;
-    --clr-bg: rgb(246, 4, 161);
-  }
-  
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  
- 
-  .neon-button {
-    font-size: 3rem;
-  
-    
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--clr-neon);
-    border: var(--clr-neon) 0.125em solid;
-    padding: 0em;
-    border-radius: 0;
-  
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-  
-    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 15em 0 var(--clr-neon);
-  
-    position: relative;
-  }
-  
-  .neon-button::before {
-    pointer-events: none;
-    content: "";
-  
-    background: var(--clr-neon);
-   
-  
-    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
-    filter: blur(1em);
-    opacity: 0.7;
-  }
-  
-  .neon-button::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-shadow: 0 0 2em 0.5em var(--clr-neon);
-    
+@keyframes fadeInPage {
+  from {
     opacity: 0;
-    
-    z-index: -1;
-    transition: opacity 100ms linear;
+    transform: scale(1.02);
   }
-  
-  .neon-button:hover,
-  .neon-button:focus {
-    color: var(--clr-bg);
-    text-shadow: none;
-  }
-  
-  .neon-button:hover::before,
-  .neon-button:focus::before {
+
+  to {
     opacity: 1;
+    transform: scale(1);
   }
-  .neon-button:hover::after,
-  .neon-button:focus::after {
-    opacity: 1;
+}
+
+
+
+
+
+
+/* =========================================================
+   🔥 TYPOGRAFIA
+   ========================================================= */
+
+/* Główny title */
+#title {
+  color: white;
+  font-weight: 600;
+
+  /* 🔥 responsive font */
+  font-size: clamp(2.5rem, 7vw, 5rem);
+
+  opacity: 1;
+}
+
+/* TELEFON / MAIL */
+h2 {
+  color: white;
+  font-weight: 600;
+
+  font-size: clamp(1rem, 2vw, 1.5rem);
+
+  opacity: 0.9;
+  z-index: 3;
+}
+
+/* Mały opis */
+h3 {
+  width: 100%;
+  max-width: 250px;
+
+  color: white;
+  font-weight: 600;
+
+  font-size: clamp(0.55rem, 1vw, 0.8rem);
+
+  opacity: 0.9;
+
+  text-align: center;
+
+  z-index: 3;
+
+  background: transparent;
+  padding: 10px;
+}
+
+/* LOGO/AR */
+h4 {
+  color: white;
+  font-weight: 600;
+
+  font-size: clamp(2rem, 6vw, 5rem);
+
+  opacity: 1;
+}
+
+/* Teksty */
+h5 {
+  color: white;
+  font-weight: 600;
+
+  font-size: clamp(0.8rem, 1vw, 1rem);
+
+  opacity: 0.9;
+
+  text-align: justify;
+}
+
+/* =========================================================
+   🔥 NIEPRAWIDŁOWE TAGI h7/h8/h9
+   (lepiej zmienić na klasy/div)
+   ========================================================= */
+
+h7,
+h8,
+h9 {
+  position: absolute;
+  z-index: 3;
+  color: white;
+}
+
+/* =========================================================
+   🔥 MENU / UL
+   ========================================================= */
+
+ul {
+  color: white;
+
+  text-align: center;
+  font-weight: 600;
+
+  font-size: clamp(1rem, 2vw, 2rem);
+
+  opacity: 0.9;
+
+  position: absolute;
+  top: 2%;
+  left: 2%;
+
+  z-index: 3;
+}
+
+/* =========================================================
+   🔥 TŁO / THREEJS
+   ========================================================= */
+
+.stars {
+  
+  z-index: 5;
+}
+
+.scene,
+canvas {
+  
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+  
+  width: 100%;
+  height: 110%;
+}
+
+.scene {
+  z-index: 2;
+}
+
+/* =========================================================
+   🔥 SOCIAL MEDIA
+   ========================================================= */
+
+/* Wrapper ikon */
+.socials,
+.socials2,
+.cv {
+  color: white;
+
+  transition: 0.2s;
+
+  position: fixed;
+
+  right: 2%;
+
+  z-index: 5;
+
+  font-size: clamp(30px, 4vw, 60px);
+}
+
+/* Linkedin */
+.socials {
+  top: 30%;
+}
+
+/* Github */
+.socials2 {
+  top: 50%;
+}
+
+/* CV */
+.cv {
+  top: 70%;
+}
+
+/* Hover */
+.socials:hover,
+.socials2:hover,
+.cv:hover {
+  color: #00ffd5;
+}
+
+/* =========================================================
+   🔥 LEWE MENU
+   ========================================================= */
+
+.INSTAGRAM,
+.NFT,
+.GAME,
+.D {
+  position: absolute;
+
+  left: 3%;
+
+  z-index: 3;
+
+  text-align: left;
+}
+
+/* Pozycje */
+.INSTAGRAM {
+  top: 40%;
+}
+
+.NFT {
+  top: 50%;
+}
+
+.GAME {
+  top: 60%;
+}
+
+.D {
+  top: 70%;
+}
+
+/* =========================================================
+   🔥 BUTTONY MENU
+   ========================================================= */
+
+#cameraButton2,
+#cameraButton3,
+#cameraButton4,
+#cameraButton5 {
+  background: transparent;
+
+  color: #00ffd5;
+
+  border: none;
+
+  width: 100%;
+  max-width: 220px;
+
+  min-height: 65px;
+
+  font-size: clamp(1rem, 2vw, 2rem);
+
+  cursor: pointer;
+
+  transition: 0.2s;
+  
+  
+}
+
+#cameraButton2:hover,
+#cameraButton3:hover,
+#cameraButton4:hover,
+#cameraButton5:hover {
+  color: white;
+}
+
+/* =========================================================
+   🔥 TELEFON / MAIL
+   ========================================================= */
+
+.TEL {
+  position: fixed;
+
+  top: 5%;
+  right: 2.5%;
+
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  text-align: right;
+}
+
+/* =========================================================
+   🔥 GŁÓWNY CONTENT
+   ========================================================= */
+
+.codegithub {
+  position: relative;
+
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  z-index: 3;
+
+  padding: 20px;
+}
+
+/* =========================================================
+   🔥 VIDEO CAROUSEL
+   ========================================================= */
+
+/* Główny carousel */
+#video-carousel {
+  position: fixed;
+
+  top: 120px;
+  right: 7%;
+
+  width: 100%;
+  max-width: 330px;
+
+  z-index: 10;
+}
+
+/* Drugi carousel */
+#video-carousel2 {
+  position: fixed;
+
+  top: 120px;
+  right: 5%;
+
+  width: 100%;
+  max-width: 600px;
+
+  z-index: 10;
+}
+
+/* Kontener */
+.video-container {
+  width: 100%;
+
+  /* 🔥 zachowuje proporcje */
+  aspect-ratio: 9 / 16;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(0, 255, 213, 0.3);
+
+  box-shadow:
+    0 0 15px rgba(0, 255, 213, 0.2),
+    inset 0 0 10px rgba(0, 255, 213, 0.1);
+
+  transition: box-shadow 0.4s ease;
+}
+
+/* Glow */
+.video-container.pulse {
+  box-shadow:
+    0 0 30px rgba(0,255,213,0.8),
+    0 0 60px rgba(0,255,213,0.4),
+    inset 0 0 20px rgba(0,255,213,0.3);
+}
+
+/* Video */
+.slide {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0;
+
+  transform: scale(1.05);
+
+  transition: all 0.6s ease;
+}
+
+.slide.active {
+  opacity: 1;
+
+  transform: scale(1);
+
+  z-index: 1;
+}
+
+/* Strzałki */
+#prev,
+#next {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background: rgba(0,0,0,0.4);
+
+  border: none;
+
+  color: rgba(0,255,213,0.8);
+
+  font-size: 24px;
+
+  padding: 10px;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  transition: 0.25s;
+}
+
+#prev {
+  left: 8px;
+}
+
+#next {
+  right: 8px;
+}
+
+#prev:hover,
+#next:hover {
+  color: #00ffd5;
+
+  transform: translateY(-50%) scale(1.15);
+}
+
+/* =========================================================
+   🔥 TEXT SWITCHER
+   ========================================================= */
+
+.text-switcher {
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 20px;
+
+  text-align: center;
+}
+
+/* Przyciski */
+.lang-buttons {
+  margin-bottom: 15px;
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+/* Button */
+.lang-btn {
+  background: transparent;
+
+  border: 1px solid rgba(0,255,213,0.4);
+
+  color: rgba(0,255,213,0.7);
+
+  padding: 6px 14px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  transition: 0.25s;
+}
+
+/* Active */
+.lang-btn.active {
+  color: #00ffd5;
+
+  box-shadow:
+    0 0 5px #00ffd5,
+    0 0 10px rgba(0,255,213,0.5);
+}
+
+/* Hover */
+.lang-btn:hover {
+  color: white;
+
+  border-color: #00ffd5;
+}
+
+/* Teksty */
+.lang-text {
+  display: none;
+
+  opacity: 0;
+
+  color: white;
+
+  font-size: clamp(14px, 2vw, 16px);
+
+  line-height: 1.7;
+
+  text-align: justify;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 0 6px rgba(0, 0, 0, 0.6);
+
+  transform: translateY(15px) scale(0.98);
+
+  filter: blur(4px);
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+/* Active text */
+.lang-text.active {
+  display: block;
+
+  opacity: 1;
+
+  transform: translateY(0) scale(1);
+
+  filter: blur(0);
+}
+
+/* =========================================================
+   🔥 GALERIA LOGO
+   ========================================================= */
+
+.container {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 80px auto;
+
+  padding: 20px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 20px;
+
+  position: relative;
+
+  z-index: 4;
+}
+
+/* Box */
+.box {
+
+  
+  width: 100%;
+
+  max-width: 400px;
+
+  transition: 0.5s;
+
+  z-index: 4;
+}
+
+/* Hover */
+.box:hover {
+  transform: scale(1.05);
+
+  z-index: 5;
+}
+
+/* =========================================================
+   🔥 LIGHTBOX
+   ========================================================= */
+
+.lb-overlay {
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.88);
+
+  z-index: 9999;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+}
+
+.lb-overlay.active {
+  display: flex;
+}
+
+.lb-overlay img {
+  max-width: 95vw;
+
+  max-height: 85vh;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+}
+
+.lb-back {
+  margin-top: 24px;
+
+  padding: 10px 28px;
+
+  background: transparent;
+
+  border: 1.5px solid rgba(255,255,255,0.5);
+
+  color: #fff;
+
+  font-size: 15px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.lb-back:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+
+
+/* =========================================================
+   🔥 NEON BUTTON
+   ========================================================= */
+
+:root {
+  --clr-neon: #00ffd5;
+  --clr-bg: rgb(246, 4, 161);
+}
+
+.neon-button {
+  font-size: clamp(1rem, 3vw, 3rem);
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  color: var(--clr-neon);
+
+  border: var(--clr-neon) 0.125em solid;
+
+  text-shadow:
+    0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em currentColor;
+
+  box-shadow:
+    inset 0 0 0.5em 0 var(--clr-neon),
+    0 0 15em 0 var(--clr-neon);
+
+  position: relative;
+}
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  
+
+
+  #cameraButton,
+  #color-button {
+    display: none;
   }
 
+  /* Wyłącz ciężkie rzeczy */
+  .scene,
+  .stars,
+  .axis {
+    display: none;
+  }
+
+  /* Video */
+  #video-carousel,
+  #video-carousel2 {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    margin: 100px auto 40px auto;
+
+    max-width: 90%;
+  }
+
+  /* Socialki dół */
+  .socials,
+  .socials2,
+  .cv {
+    position: relative;
+    
+    
+    
+
+    
+  }
+
+  .socials {
+    left: 20%;
+    bottom: 50%;
+  }
+
+  .cv {
+    left: 45%;
+  }
+
+  .socials2 {
+    left: 70%;
+  }
+
+  /* Telefon/mail */
+  .TEL {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    width: 100%;
+
+    padding: 20px;
+
+    text-align: center;
+  }
+
+  /* Menu */
+  .INSTAGRAM,
+  .NFT,
+  .GAME,
+  .D {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    margin: 15px auto;
+
+    text-align: center;
+  }
+
+  /* Kontener */
+  .container {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  /* Logo */
+  .box {
+    max-width: 90%;
+  }
+
+  /* Text */
+  .lang-text {
+    text-align: left;
+  }
+
+  /* H4 */
+  h4 {
+    top:10%;
+    text-align: center;
+  }
+
+  
+
+}
+
+#cameraButton {
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
+  border: none;
+  
+  height: 50px;
+  text-align: center;
+  font-size: 25px;
+  position: absolute;
+  top: 95%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  
+}
+
+#cameraButton:hover {
+    color: #00ffd5;
+  cursor: pointer;
+}
 
 
- 
-  @media (max-width: 768px) {
+#color-button {
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
+  border: none;
+  
+  height: 50px;
+  text-align: center;
+  font-size: 25px;
+  position: absolute;
+  top: 95%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  
+}
 
+#color-button:hover {
+    color: #00ffd5;
+  cursor: pointer;
 
-    #cameraButton {
-        display: none;
-      }
   
-      #color-button {
-        display: none;
-      }
-  
-  
-      .axis {
-        display: none;
-      }
-  
-  
-      h2 {
-        font-size: 1.2rem;
-      }
-    
-      h3 {
-        font-size: 0.5rem;
-        width: 180px;
-        padding: 5px;
-      }
-    
-      h4 {
-        font-size: 2rem;
-        padding: 5px;
-        padding-left: 40px;
-      }
-    
-      h5 {
-        font-size: 0.8rem;
-        padding-left: 50px;
-      }
-    
-      h7 {
-        top: 20%;
-        left: 70%;
-      }
-    
-      h8 {
-        top: 15%;
-        left: 65%;
-      }
-    
-      h9 {
-        top: 10%;
-        left: 60%;
-        font-size: 0.8rem;
-        padding: 5px;
-      }
-    
-      ul {
-        top: 17%;
-        
-        
-        
-      }
-    
-      .stars {
-        display: none;
-      }
-    
-      .scene {
-        display: none;
-      }
-    
-      .container {
-        top: 50%;
-        right: 0;
-        left: 0;
-        transform: translateY(-50%);
-        padding: 10px;
-        margin: 0;
-        width: 100%;
-        height: auto;
-      }
-    
-      .INSTAGRAM {
-        top: 40%;
-        right: 5%;
-        text-align: right;
-      }
-    
-      .GAME {
-        top: 55%;
-        right: 5%;
-        text-align: right;
-      }
-    
-      .NFT {
-        top: 70%;
-        right: 5%;
-        text-align: right;
-      }
-    
-      .D {
-        top: 85%;
-        right: 5%;
-        text-align: right;
-      }
-    
-      .TEL {
-       
-        position: fixed;
-        
-        text-align: center;
-        margin-top: 0.1px;
-        font-size: 55px;
-       
-      }
-    
-      .socials{
-        position: fixed;
-        top: 90%;
-        right: 70%;
-        margin-top: 20px;
-        text-align: center;
-        font-size: 40px;
-      }
-      .socials2{
-        position: fixed;
-        top: 90%;
-        right: 30%;
-        margin-top: 20px;
-        text-align: center;
-        font-size: 40px;
-      }
-      .cv {
-        position: fixed;
-        top: 90%;
-        right: 50%;
-        margin-top: 20px;
-        text-align: center;
-        font-size: 40px;
-      }
-       
-  
-      
-  
-      body {
-    
-        font-family: "Source Code Pro", sans-serif;
-        
-        
-        background: rgb(61, 61, 61); 
-        
-        
-      }
-  
-    }
+
+}
