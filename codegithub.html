@@ -132,11 +132,14 @@
 
 <body>
 
-
+  <script>
+    const savedBg = localStorage.getItem("bgColor");
+    if (savedBg) document.body.style.background = savedBg;
+  </script>
 
   <div class="links">
 
-    <div class="codegithub">
+    
         
      
 
@@ -145,17 +148,19 @@
 
      <div class="text-switcher">
 
-      <!-- 🔥 BUTTONY -->
-      <div class="lang-buttons">
-
-        
-        <h4>LOGO/AR</h4><button class="lang-btn active" data-lang="pl">PL</button>
-        <button class="lang-btn" data-lang="en">ENG</button>
-      </div>
+      
     
       <!-- 🔥 TEKSTY -->
       <div class="text-container">
-    
+        <div id="title">LOGO/AR</div>
+
+        <div class="lang-buttons">
+
+        
+          <button class="lang-btn active" data-lang="pl">PL</button>
+          <button class="lang-btn" data-lang="en">ENG</button>
+        </div>
+
         <p id="pl-text" class="lang-text active">
           Projektuję logo, które się wyróżniają — nie giną w tłumie. Każdy znak, który tworzę, opiera się na wyczuciu stylu, starannej typografii i naturalnym instynkcie do kompozycji. Ten instynkt wyrobiłem sobie przez lata fascynacji graffiti — praca z literą jako formą artystyczną nauczyła mnie rozumieć kształt, rytm i symetrię w sposób, który bezpośrednio przekłada się na projektowanie logo.
 Pracuję na pełnym zestawie narzędzi — tworzę precyzyjne identyfikacje wektorowe w Adobe Illustrator, dopracowuję je w Photoshopie, a następnie wychodzę poza płaski ekran dzięki Blenderowi, gdzie logo staje się obiektem przestrzennym. W 3D nie zatrzymuję się na statycznym renderze: animuję i nadaję znakowi życie.
@@ -306,31 +311,9 @@ AR INSTAGRAM FILTERS:
 
 
     <a href="index.html">
-    <button id="cameraButton">Back</button>
+    <button id="Back">Back</button>
     </a>
-    <style>
-        #cameraButton {
-          
-          background-color: rgba(255, 255, 255, 0);
-          color: rgb(255, 255, 255);
-          border: none;
-          width: 150px;
-          height: 50px;
-          text-align: center;
-          font-size: 18px;
-          position: absolute;
-          top: 95%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 9999;
-          
-        }
-      
-        #cameraButton:hover {
-          color: #00ffd5;
-          cursor: pointer;
-        }
-      </style>
+   
 
 
     <script>
@@ -347,6 +330,29 @@ AR INSTAGRAM FILTERS:
         }
       });
     </script>
+
+<script>
+
+  var button = document.getElementById("color-button");
+   var click = 0;
+
+  button.addEventListener("click", function() {
+     clicks++;
+     if (clicks % 4 === 1) {
+       document.body.style.background = "linear-gradient(to right top, #f81313, rgb(99,99,99))";
+     } else if (clicks % 4 === 2) {
+       document.body.style.background = "linear-gradient(to right top, #056b3e , rgb(99,99,99))";
+
+     } else if (clicks % 4 === 3) {
+       document.body.style.background = "linear-gradient(to right top, black , rgb(99,99,99))";
+
+     } else {
+       document.body.style.background = "linear-gradient(to right top, rgb(67, 67, 67), rgb(99,99,99))";
+     }
+ });
+
+  
+ </script>
     
     
    

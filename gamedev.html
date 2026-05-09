@@ -141,17 +141,22 @@
 
 <body>
 
+  <script>
+    const savedBg = localStorage.getItem("bgColor");
+    if (savedBg) document.body.style.background = savedBg;
+  </script>
+
 
   <div class="links">
 
-    <div class="codegithub">
+    
         
      <!-- <h4>GAMEDEV <img src="./pngs/gamelogos.png" height="140" title="logo"></h4> -->
       
 
      <div class="text-switcher">
 
-      <h4>GAMEDEV</h4>
+      <div id="title">GAMEDEV</div>
 
       <!-- 🔥 BUTTONY -->
       <div class="lang-buttons">
@@ -163,16 +168,16 @@
       <div class="text-container">
     
         <p id="pl-text" class="lang-text active">
-          Fascynuje mnie tworzenie gier — Unity to miejsce, gdzie daję upust swojej kreatywności, gdzie moje modele 3D stają się interaktywne i dają prawdziwą frajdę graczowi. Tworzę gry na PC, w których klimat i atmosfera mają znaczenie. Zależy mi na tym, żeby gracz trafił do świata, który wciąga i zostaje w pamięci. Każdy projekt zaczynam od pomysłu na doświadczenie — mechanika i grafika są narzędziami, nie celem samym w sobie.
+          Fascynuje mnie tworzenie gier — Unity to miejsce, gdzie daję upust swojej kreatywności, gdzie moje modele 3D stają się interaktywne i dają prawdziwą frajdę graczowi. Tworzę gry na PC, w których klimat i atmosfera mają znaczenie. Zależy mi na tym, żeby gracz trafił do świata, który wciąga i zostaje w pamięci.
 Moje umiejętności wykraczają poza samo programowanie. Tworzę autorskie assety do gier: modele 3D w Blenderze, assety ze skanów 3D rzeczywistych obiektów oraz animacje. Dbam o to, żeby każdy element — od oprawy graficznej po mechaniki rozgrywki — był dopracowany i spójny. Spójność wizualna i klimatyczna to dla mnie fundament każdej dobrej produkcji.
-Koduję w C#, stawiając na czysty i wydajny kod, który zapewnia płynne doświadczenie dla graczy. Tworzę również animacje marketingowe do swoich projektów, które pomagają budować zainteresowanie przed premierą. Równolegle rozwijam się w tworzeniu stron internetowych, co pozwala mi spojrzeć na projekt z szerszej perspektywy. Umiejętność łączenia różnych dziedzin daje mi przewagę — widzę produkt całościowo, nie tylko przez pryzmat jednej specjalizacji.
+Koduję w C#, stawiając na czysty i wydajny kod, który zapewnia płynne doświadczenie dla graczy. Tworzę również animacje marketingowe do swoich projektów, które pomagają budować zainteresowanie przed premierą. Równolegle rozwijam się w tworzeniu stron internetowych — znam podstawy HTML, CSS, JavaScript oraz Three.js, dzięki czemu tworzę interaktywne i angażujące strony. To pozwala mi spojrzeć na projekt z szerszej perspektywy i łączyć umiejętności graficzne z technicznymi. Umiejętność łączenia różnych dziedzin daje mi przewagę — widzę produkt całościowo, nie tylko przez pryzmat jednej specjalizacji.
 Nieustannie uczę się i śledzę nowe technologie, aby być na czele branży.
         </p>
     
         <p id="en-text" class="lang-text">
-          Game development genuinely fascinates me — Unity is the place where I unleash my creativity, where my 3D models become interactive and give players a real sense of fun. I create PC games where atmosphere and mood matter. I want the player to step into a world that pulls them in and stays with them. Every project starts with an idea for an experience — mechanics and visuals are tools, not the goal in themselves.
+          Game development genuinely fascinates me — Unity is the place where I unleash my creativity, where my 3D models become interactive and give players a real sense of fun. I create PC games where atmosphere and mood matter. I want the player to step into a world that pulls them in and stays with them.
 My skills go beyond programming. I build original game assets: 3D models in Blender, assets from 3D scans of real-world objects, and animations. I make sure every element — from visuals to gameplay mechanics — is polished and consistent. Visual and atmospheric cohesion is, for me, the foundation of any strong production.
-I code in C#, focusing on clean and efficient code that delivers a smooth experience for players. I also produce marketing animations for my projects to build interest ahead of release. Alongside that, I'm developing my web development skills, which gives me a broader perspective on the overall product. The ability to combine different disciplines is an advantage — I see the product as a whole, not just through the lens of a single specialisation.
+I code in C#, focusing on clean and efficient code that delivers a smooth experience for players. I also produce marketing animations for my projects to build interest ahead of release. Alongside my main work, I'm developing my web development skills — I have a solid grasp of HTML, CSS, JavaScript, and Three.js, which allows me to build interactive and visually engaging websites. This broader perspective lets me bridge the gap between design and technology. The ability to combine different disciplines is an advantage — I see the product as a whole, not just through the lens of a single specialisation.
 I'm constantly learning and following new technologies to stay current in the industry.
         </p>
     
@@ -183,7 +188,7 @@ I'm constantly learning and following new technologies to stay current in the in
 
 
 
-  <div id="video-carousel2">
+  <div id="video-carousel">
     UNITY GAMEPLAY:
     <button id="prev">◀</button>
   
@@ -313,7 +318,7 @@ container.appendChild(renderer.domElement);
        <h7><img src="nfs okladka strona.png" height="500"></h7>
      </div>-->
 
-     <h6><video autoplay loop src="ani.mp4"></h6>
+     <!--<h6><video autoplay loop src="ani.mp4"></h6> -->
      
 
   <!--<div class="stars">
@@ -352,30 +357,9 @@ container.appendChild(renderer.domElement);
 
 
     <a href="index.html">
-    <button id="cameraButton">Back</button>
+    <button id="Back">Back</button>
     </a>
-    <style>
-        #cameraButton {
-          background-color: rgba(255, 255, 255, 0);
-          color: rgb(255, 255, 255);
-          border: none;
-          width: 150px;
-          height: 50px;
-          text-align: center;
-          font-size: 18px;
-          position: fixed;
-          top: 95%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 99;
-          
-        }
-      
-        #cameraButton:hover {
-          color: #00ffd5;
-          cursor: pointer;
-        }
-      </style>
+    
 
 
     <script>

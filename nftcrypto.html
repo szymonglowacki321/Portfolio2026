@@ -134,7 +134,10 @@
 
 
 
-
+  <script>
+    const savedBg = localStorage.getItem("bgColor");
+    if (savedBg) document.body.style.background = savedBg;
+  </script>
   
 
 
@@ -182,16 +185,12 @@ AR INSTAGRAM FILTERS:
 
 
 
-    <ul>
-        
-        <h1></h1>
-        
-    </ul>
+    
 
 
     <div class="links">
 
-        <div class="codegithub">
+        
             
          
 
@@ -200,11 +199,13 @@ AR INSTAGRAM FILTERS:
 
          <div class="text-switcher">
 
+          <div id="title">PHOTOSHOP</div>
+
           <!-- 🔥 BUTTONY -->
           <div class="lang-buttons">
 
             
-            <h4>PHOTOSHOP</h4><button class="lang-btn active" data-lang="pl">PL</button>
+            <button class="lang-btn active" data-lang="pl">PL</button>
             <button class="lang-btn" data-lang="en">ENG</button>
           </div>
         
@@ -212,11 +213,15 @@ AR INSTAGRAM FILTERS:
           <div class="text-container">
         
             <p id="pl-text" class="lang-text active">
-              Moje doświadczenie i miłość do sztuki dały mi solidne podstawy w dziedzinie sztuk wizualnych i sprawiają, że jestem wyjątkowym projektantem/kreatywnym. Projektowanie jest dużą częścią mojego życia. Moje umiejętności w programach Adobe Photoshop i Adobe Illustrator pozwalają mi tworzyć projekty, które są nie tylko efektowne wizualnie, ale także funkcjonalne i skuteczne. Zaprojektowałem okładki i ulotki, które spotkały się z powszechnym uznaniem. Oprócz moich umiejętności technicznych, posiadam głęboką znajomość zasad projektowania i tego, jak mogą być wykorzystane do tworzenia skutecznych i angażujących projektów. Zawsze uczę się i eksploruję nowe trendy i techniki projektowania, aby być na czele dziedziny i tworzyć projekty, które są świeże i innowacyjne.
+              Moje doświadczenie oraz pasja do sztuki pozwoliły mi zbudować solidne podstawy w dziedzinie projektowania i sztuk wizualnych. Design jest ważną częścią mojego życia — do każdego projektu podchodzę z zaangażowaniem, kreatywnością i dbałością o detale.
+Biegle posługuję się programami Adobe Photoshop oraz Adobe Illustrator, tworząc projekty, które są nie tylko atrakcyjne wizualnie, ale również funkcjonalne i skuteczne w komunikacji. Mam dobre wyczucie stylu i koloru, dzięki czemu potrafię budować spójne palety barwne oraz estetyczne kompozycje dopasowane do charakteru marki i odbiorcy.
+Projektowałem okładki oraz ulotki, które spotkały się z pozytywnym odbiorem. W swojej pracy stawiam na indywidualne podejście, czytelny przekaz oraz design, który przyciąga uwagę i wyróżnia się na tle innych projektów.
             </p>
         
             <p id="en-text" class="lang-text">
-              My experience and love for art have given me a strong foundation in the visual arts and makes me unique designer/creative. Design is an inseparable part of my life. My skills in Adobe Photoshop and Adobe Illustrator enable me to create designs that are not only visually striking but also functional and effective. I have designed covers and flyers that have received widespread acclaim, thanks to my attention to detail, creativity, and technical expertise. In addition to my technical skills, I have a deep understanding of design principles and how they can be used to create effective and engaging designs. I am always learning and exploring new design trends and techniques, in order to stay at the forefront of my field and create designs that are fresh and innovative.
+              My experience and passion for art have given me a strong foundation in visual design and creative work. Design is an important part of my life, and I approach every project with creativity, attention to detail, and genuine passion.
+I am proficient in Adobe Photoshop and Adobe Illustrator, creating designs that are not only visually appealing but also functional and effective in communication. I have a strong sense of style and color, allowing me to create cohesive color palettes and visually balanced compositions tailored to the brand and its audience.
+I have designed covers and promotional flyers that received positive feedback and recognition. In my work, I focus on an individual approach, clear communication, and eye-catching design that stands out and leaves a lasting impression.
             </p>
         
           </div>
@@ -228,27 +233,30 @@ AR INSTAGRAM FILTERS:
 
         
 
-        <div class="container" data-aos="zoom-in" data-aos-duration="9000" data-aos-delay="200">
-          
-          <div class="box">
-            <img src="Landscape.jpg" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
-          </div>
-          <div class="box">
-            <img src="transformers reoak ps.jpg" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
-          </div>
-          <div class="box">
-            <img src="st patrick.jpg" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
-          </div>
-          
-          <div class="box">
-            <img src="CLA.jpg" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
-          </div>
-          <div class="box">
-            <img src="slot vol1.jpg" height="180" onclick="openLightbox(this.src)" style="cursor:pointer">
-          </div>
+         <div class="carousel-wrapper" data-aos="zoom-in" data-aos-duration="9000" data-aos-delay="200">
 
-
-
+          <button class="carousel-btn prev" id="prevBtn">&#8592;</button>
+        
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-item">
+              <img src="Landscape.jpg" onclick="openLightbox(this.src)" style="cursor:pointer">
+            </div>
+            <div class="carousel-item">
+              <img src="transformers reoak ps.jpg" onclick="openLightbox(this.src)" style="cursor:pointer">
+            </div>
+            <div class="carousel-item">
+              <img src="st patrick.jpg" onclick="openLightbox(this.src)" style="cursor:pointer">
+            </div>
+            <div class="carousel-item">
+              <img src="CLA.jpg" onclick="openLightbox(this.src)" style="cursor:pointer">
+            </div>
+            <div class="carousel-item">
+              <img src="slot vol1.jpg" onclick="openLightbox(this.src)" style="cursor:pointer">
+            </div>
+          </div>
+        
+          <button class="carousel-btn next" id="nextBtn">&#8594;</button>
+        
         </div>
 
 
@@ -312,34 +320,41 @@ AR INSTAGRAM FILTERS:
 
 
     <a href="index.html">
-    <button id="cameraButton">Back</button>
+    <button id="Back">Back</button>
     </a>
-    <style>
-        #cameraButton {
-          
-          background-color: rgba(255, 255, 255, 0);
-          color: rgb(255, 255, 255);
-          border: none;
-          width: 150px;
-          height: 50px;
-          text-align: center;
-          font-size: 18px;
-          position: absolute;
-          top: 95%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 99;
-          
-        }
+    
       
-        #cameraButton:hover {
-          color: #00ffd5;
-          cursor: pointer;
-        }
-      </style>
-
-
     <script>
+      const track    = document.getElementById("carouselTrack");
+      const prevBtn  = document.getElementById("prevBtn");
+      const nextBtn  = document.getElementById("nextBtn");
+    
+      let isDown     = false;
+      let startX     = 0;
+      let scrollLeft = 0;
+    
+      // przyciski
+      prevBtn.addEventListener("click", () => {
+        track.scrollBy({ left: -260, behavior: "smooth" });
+      });
+      nextBtn.addEventListener("click", () => {
+        track.scrollBy({ left: 260, behavior: "smooth" });
+      });
+    
+      
+    
+      // schowaj/pokaż strzałki
+      track.addEventListener("scroll", () => {
+        prevBtn.style.opacity = track.scrollLeft > 10 ? "1" : "0.1";
+        nextBtn.style.opacity =
+          track.scrollLeft < track.scrollWidth - track.clientWidth - 10
+            ? "1" : "0.1";
+      });
+    
+      prevBtn.style.opacity = "0.3";
+    </script>
+
+    <!-- <script>
       let clicks = 0;
       const initialCameraPosition = {...camera.position};
     
@@ -352,7 +367,7 @@ AR INSTAGRAM FILTERS:
           clicks = 0;
         }
       });
-    </script>
+    </script>  -->
     
     
    

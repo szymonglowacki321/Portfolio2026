@@ -1,9 +1,12 @@
 
-/* =========================================================
-   🔥 RESET / GLOBAL
-   ========================================================= */
 
-/* Reset podstawowy */
+/* =========================================================
+   🔥 1. RESET / GLOBAL
+   =========================================================
+   Resetuje marginesy i paddingi.
+   Ustawia poprawne liczenie width/height.
+*/
+
 *,
 *::before,
 *::after {
@@ -12,20 +15,36 @@
   box-sizing: border-box;
 }
 
-/* Global body */
+/* =========================================================
+   🔥 2. ROOT COLORS
+   =========================================================
+   Globalne kolory strony.
+*/
+
+:root {
+  --clr-neon: #00ffd5;
+  --clr-bg: rgb(246, 4, 161);
+}
+
+/* =========================================================
+   🔥 3. BODY / STRONA
+   =========================================================
+   Główne ustawienia strony.
+   PC = brak scrolla.
+*/
+
 body {
   font-family: "Source Code Pro", sans-serif;
-  min-height: 100vh;
-
   background: rgb(61, 61, 61);
 
-  overflow-x: hidden; /* 🔥 blokuje poziomy scroll */
-  overflow-y: auto;
+  min-height: 100vh;
+
+  overflow: hidden; /* 🔥 brak scrolla na PC */
 
   animation: fadeInPage 0.8s ease;
 }
 
-/* Media zawsze responsive */
+/* Responsive media */
 img,
 video,
 canvas {
@@ -34,10 +53,11 @@ canvas {
 }
 
 /* =========================================================
-   🔥 ANIMACJA WEJŚCIA
+   🔥 4. ANIMACJA STARTU
    ========================================================= */
 
 @keyframes fadeInPage {
+
   from {
     opacity: 0;
     transform: scale(1.02);
@@ -49,35 +69,24 @@ canvas {
   }
 }
 
-
-
-
-
-
 /* =========================================================
-   🔥 TYPOGRAFIA
+   🔥 5. TYPOGRAFIA
    ========================================================= */
 
-/* Główny title */
+/* Główny tytuł */
 #title {
   color: white;
   font-weight: 600;
-
-  /* 🔥 responsive font */
   font-size: clamp(2.5rem, 7vw, 5rem);
-
-  opacity: 1;
+  text-align: left;
 }
 
-/* TELEFON / MAIL */
+/* Telefon / email */
 h2 {
   color: white;
   font-weight: 600;
-
   font-size: clamp(1rem, 2vw, 1.5rem);
-
   opacity: 0.9;
-  z-index: 3;
 }
 
 /* Mały opis */
@@ -90,122 +99,116 @@ h3 {
 
   font-size: clamp(0.55rem, 1vw, 0.8rem);
 
-  opacity: 0.9;
-
   text-align: center;
 
-  z-index: 3;
+  padding: 10px;
 
   background: transparent;
-  padding: 10px;
 }
 
-/* LOGO/AR */
+/* Duże logo / tekst */
 h4 {
   color: white;
   font-weight: 600;
+  text-align: left;
 
   font-size: clamp(2rem, 6vw, 5rem);
-
-  opacity: 1;
 }
 
-/* Teksty */
+/* Dłuższe teksty */
 h5 {
   color: white;
   font-weight: 600;
 
   font-size: clamp(0.8rem, 1vw, 1rem);
 
-  opacity: 0.9;
-
   text-align: justify;
+
+  line-height: 1.7;
 }
 
 /* =========================================================
-   🔥 NIEPRAWIDŁOWE TAGI h7/h8/h9
-   (lepiej zmienić na klasy/div)
-   ========================================================= */
+   🔥 6. NIETYPOWE TAGI
+   =========================================================
+   Lepiej zamienić kiedyś na klasy/div.
+*/
 
 h7,
 h8,
 h9 {
   position: absolute;
-  z-index: 3;
   color: white;
+  z-index: 3;
 }
 
 /* =========================================================
-   🔥 MENU / UL
+   🔥 7. MENU / LISTA
    ========================================================= */
 
 ul {
-  color: white;
+  position: absolute;
 
-  text-align: center;
-  font-weight: 600;
+  top: 2%;
+  left: 2%;
+
+  color: white;
 
   font-size: clamp(1rem, 2vw, 2rem);
 
-  opacity: 0.9;
-
-  position: absolute;
-  top: 2%;
-  left: 2%;
+  font-weight: 600;
 
   z-index: 3;
 }
 
 /* =========================================================
-   🔥 TŁO / THREEJS
-   ========================================================= */
-
-.stars {
-  
-  z-index: 5;
-}
+   🔥 8. THREEJS / TŁO
+   =========================================================
+   Tło 3D oraz canvas.
+*/
 
 .scene,
 canvas {
-  
   position: fixed;
 
   inset: 0;
 
+  width: 100%;
+  height: 100%;
+
   z-index: 0;
 
   pointer-events: none;
-  
-  width: 100%;
-  height: 110%;
 }
 
 .scene {
+  z-index: 1;
+}
+
+.stars {
   z-index: 2;
 }
 
 /* =========================================================
-   🔥 SOCIAL MEDIA
+   🔥 9. SOCIAL MEDIA
    ========================================================= */
 
-/* Wrapper ikon */
 .socials,
 .socials2,
 .cv {
-  color: white;
-
-  transition: 0.2s;
-
   position: fixed;
 
   right: 2%;
 
-  z-index: 5;
+  color: white;
 
   font-size: clamp(30px, 4vw, 60px);
+
+  transition: 0.2s;
+
+  z-index: 10;
 }
 
-/* Linkedin */
+/* LinkedIn */
 .socials {
   top: 30%;
 }
@@ -224,11 +227,11 @@ canvas {
 .socials:hover,
 .socials2:hover,
 .cv:hover {
-  color: #00ffd5;
+  color: var(--clr-neon);
 }
 
 /* =========================================================
-   🔥 LEWE MENU
+   🔥 10. LEWE MENU
    ========================================================= */
 
 .INSTAGRAM,
@@ -237,14 +240,19 @@ canvas {
 .D {
   position: absolute;
 
-  left: 3%;
+  left: 2.5%;
 
-  z-index: 3;
+  z-index: 5;
 
   text-align: left;
+
+  width: 250px;
+  
+
+  
 }
 
-/* Pozycje */
+/* Pozycje menu */
 .INSTAGRAM {
   top: 40%;
 }
@@ -262,7 +270,7 @@ canvas {
 }
 
 /* =========================================================
-   🔥 BUTTONY MENU
+   🔥 11. BUTTONY MENU
    ========================================================= */
 
 #cameraButton2,
@@ -271,22 +279,22 @@ canvas {
 #cameraButton5 {
   background: transparent;
 
-  color: #00ffd5;
-
   border: none;
+
+  color: var(--clr-neon);
 
   width: 100%;
   max-width: 220px;
 
-  min-height: 65px;
+  min-height: 60px;
+
+  padding: 8px 14px;
 
   font-size: clamp(1rem, 2vw, 2rem);
 
   cursor: pointer;
 
   transition: 0.2s;
-  
-  
 }
 
 #cameraButton2:hover,
@@ -297,16 +305,14 @@ canvas {
 }
 
 /* =========================================================
-   🔥 TELEFON / MAIL
+   🔥 12. TELEFON / EMAIL
    ========================================================= */
 
 .TEL {
   position: fixed;
 
-  top: 5%;
+  top: 3%;
   right: 2.5%;
-
-  z-index: 5;
 
   display: flex;
   flex-direction: column;
@@ -314,60 +320,50 @@ canvas {
   gap: 10px;
 
   text-align: right;
-}
-
-/* =========================================================
-   🔥 GŁÓWNY CONTENT
-   ========================================================= */
-
-.codegithub {
-  position: relative;
-
-  width: 100%;
-  max-width: 1200px;
-
-  margin: 0 auto;
-
-  z-index: 3;
-
-  padding: 20px;
-}
-
-/* =========================================================
-   🔥 VIDEO CAROUSEL
-   ========================================================= */
-
-/* Główny carousel */
-#video-carousel {
-  position: fixed;
-
-  top: 120px;
-  right: 7%;
-
-  width: 100%;
-  max-width: 330px;
 
   z-index: 10;
 }
+
+/* =========================================================
+   🔥 13. GŁÓWNY CONTENT
+   ========================================================= */
+
+
+
+/* =========================================================
+   🔥 14. VIDEO CAROUSEL
+   ========================================================= */
+
+/* Pierwszy carousel */
+#video-carousel {
+  position: fixed;
+  top: 120px;
+  right: 7%;
+  width: 100%;
+  max-width: 330px;
+  z-index: 20;
+  
+}
+
+
 
 /* Drugi carousel */
 #video-carousel2 {
   position: fixed;
 
   top: 120px;
-  right: 5%;
+  right: 7%;
 
   width: 100%;
   max-width: 600px;
 
-  z-index: 10;
+  z-index: 20;
 }
 
-/* Kontener */
+/* Kontener video */
 .video-container {
   width: 100%;
 
-  /* 🔥 zachowuje proporcje */
   aspect-ratio: 9 / 16;
 
   position: relative;
@@ -386,7 +382,7 @@ canvas {
     0 0 15px rgba(0, 255, 213, 0.2),
     inset 0 0 10px rgba(0, 255, 213, 0.1);
 
-  transition: box-shadow 0.4s ease;
+  transition: 0.4s;
 }
 
 /* Glow */
@@ -397,7 +393,7 @@ canvas {
     inset 0 0 20px rgba(0,255,213,0.3);
 }
 
-/* Video */
+/* Slajdy */
 .slide {
   position: absolute;
 
@@ -415,10 +411,7 @@ canvas {
 
 .slide.active {
   opacity: 1;
-
   transform: scale(1);
-
-  z-index: 1;
 }
 
 /* Strzałki */
@@ -445,8 +438,6 @@ canvas {
   cursor: pointer;
 
   z-index: 10;
-
-  transition: 0.25s;
 }
 
 #prev {
@@ -457,40 +448,51 @@ canvas {
   right: 8px;
 }
 
+/* Hover */
 #prev:hover,
 #next:hover {
-  color: #00ffd5;
+  color: var(--clr-neon);
 
   transform: translateY(-50%) scale(1.15);
 }
 
 /* =========================================================
-   🔥 TEXT SWITCHER
+   🔥 15. TEXT SWITCHER
    ========================================================= */
 
-.text-switcher {
-  width: 100%;
+  
 
-  max-width: 1100px;
+   .text-switcher {
 
-  margin: 0 auto;
+    /* szerokość */
+    width: 100%;
+    max-width: 1000px;
+  
+    /* 🔥 ustawienie po lewej stronie */
+    margin-left: 2.5%;
+    margin-right: auto;
+  
+    padding: 10px;
+  
+    /* tekst wyrównany do lewej */
+    text-align: left;
+  
+    position: relative;
+  
+    z-index: 5;
+  }
 
-  padding: 20px;
-
-  text-align: center;
-}
-
-/* Przyciski */
+/* Buttons językowe */
 .lang-buttons {
-  margin-bottom: 15px;
-
   display: flex;
 
-  justify-content: center;
+  justify-content: left;
 
   flex-wrap: wrap;
 
   gap: 10px;
+
+  margin-bottom: 15px;
 }
 
 /* Button */
@@ -505,28 +507,25 @@ canvas {
 
   cursor: pointer;
 
-  font-size: 14px;
-
   transition: 0.25s;
 }
 
 /* Active */
 .lang-btn.active {
-  color: #00ffd5;
+  color: var(--clr-neon);
 
   box-shadow:
-    0 0 5px #00ffd5,
+    0 0 5px var(--clr-neon),
     0 0 10px rgba(0,255,213,0.5);
 }
 
 /* Hover */
 .lang-btn:hover {
   color: white;
-
-  border-color: #00ffd5;
+  border-color: var(--clr-neon);
 }
 
-/* Teksty */
+/* Tekst */
 .lang-text {
   display: none;
 
@@ -540,33 +539,23 @@ canvas {
 
   text-align: justify;
 
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.8),
-    0 0 6px rgba(0, 0, 0, 0.6);
+  transform: translateY(15px);
 
-  transform: translateY(15px) scale(0.98);
-
-  filter: blur(4px);
-
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease,
-    filter 0.5s ease;
+  transition: 0.5s;
 }
 
 /* Active text */
 .lang-text.active {
   display: block;
-
+  text-align: justify;
   opacity: 1;
 
-  transform: translateY(0) scale(1);
 
-  filter: blur(0);
+  transform: translateY(0);
 }
 
 /* =========================================================
-   🔥 GALERIA LOGO
+   🔥 16. GALERIA / LOGO
    ========================================================= */
 
 .container {
@@ -574,7 +563,8 @@ canvas {
 
   max-width: 1200px;
 
-  margin: 80px auto;
+  margin: auto;
+  margin-left: 2.5%;
 
   padding: 20px;
 
@@ -582,37 +572,30 @@ canvas {
 
   flex-wrap: wrap;
 
-  justify-content: center;
+  justify-content: left;
 
   gap: 20px;
 
   position: relative;
 
-  z-index: 4;
+  z-index: 5;
 }
 
 /* Box */
 .box {
-
-  
   width: 100%;
-
   max-width: 400px;
 
   transition: 0.5s;
-
-  z-index: 4;
 }
 
 /* Hover */
 .box:hover {
   transform: scale(1.05);
-
-  z-index: 5;
 }
 
 /* =========================================================
-   🔥 LIGHTBOX
+   🔥 17. LIGHTBOX
    ========================================================= */
 
 .lb-overlay {
@@ -627,7 +610,6 @@ canvas {
   z-index: 9999;
 
   align-items: center;
-
   justify-content: center;
 
   flex-direction: column;
@@ -637,9 +619,9 @@ canvas {
   display: flex;
 }
 
+/* Zdjęcie */
 .lb-overlay img {
   max-width: 95vw;
-
   max-height: 85vh;
 
   object-fit: contain;
@@ -647,6 +629,7 @@ canvas {
   border-radius: 8px;
 }
 
+/* Back button */
 .lb-back {
   margin-top: 24px;
 
@@ -656,29 +639,21 @@ canvas {
 
   border: 1.5px solid rgba(255,255,255,0.5);
 
-  color: #fff;
-
-  font-size: 15px;
+  color: white;
 
   border-radius: 8px;
 
   cursor: pointer;
 }
 
+/* Hover */
 .lb-back:hover {
   background: rgba(255,255,255,0.12);
 }
 
-
-
 /* =========================================================
-   🔥 NEON BUTTON
+   🔥 18. NEON BUTTON
    ========================================================= */
-
-:root {
-  --clr-neon: #00ffd5;
-  --clr-bg: rgb(246, 4, 161);
-}
 
 .neon-button {
   font-size: clamp(1rem, 3vw, 3rem);
@@ -689,10 +664,10 @@ canvas {
 
   color: var(--clr-neon);
 
-  border: var(--clr-neon) 0.125em solid;
+  border: 0.125em solid var(--clr-neon);
 
   text-shadow:
-    0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.125em rgba(255,255,255,0.3),
     0 0 0.45em currentColor;
 
   box-shadow:
@@ -703,26 +678,278 @@ canvas {
 }
 
 /* =========================================================
-   📱 MOBILE
+   🔥 19. VIEW 3D / CHANGE COLOR
+   ========================================================= */
+
+/* View 3D */
+#cameraButton {
+  position: absolute;
+
+  top: 90%;
+  left: 65%;
+
+  transform: translate(-50%, -50%);
+
+  background: transparent;
+
+  border: none;
+
+  color: white;
+
+  font-size: 25px;
+
+  cursor: pointer;
+
+  z-index: 9999;
+}
+
+#cameraButton:hover {
+  color: var(--clr-neon);
+}
+
+/* Change color */
+#color-button {
+  position: absolute;
+
+  top: 90%;
+  left: 35%;
+
+  transform: translate(-50%, -50%);
+
+  background: transparent;
+
+  border: none;
+
+  color: white;
+
+  font-size: 25px;
+
+  cursor: pointer;
+
+  z-index: 9999;
+}
+
+#color-button:hover {
+  color: var(--clr-neon);
+}
+
+
+#Back {
+          
+          background-color: rgba(255, 255, 255, 0);
+          color: rgb(255, 255, 255);
+          border: none;
+          width: 150px;
+          height: 50px;
+          text-align: center;
+          font-size: 18px;
+          position: fixed;
+          top: 95%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 99;
+          
+}
+      
+        #Back:hover {
+          color: #00ffd5;
+          cursor: pointer;
+        }
+
+
+
+
+        .carousel-wrapper {
+          position: relative;
+          width: 100%;
+          max-width: 85%;
+          right: 5%;
+          margin: 0 auto;
+          border-radius: 16px;
+          overflow: hidden;
+        }
+        
+        .carousel-track {
+          display: flex;
+          gap: 14px;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          scrollbar-width: none;
+          padding: 16px;
+          box-sizing: border-box;
+        }
+        
+        .carousel-track::-webkit-scrollbar {
+          display: none;
+        }
+        
+        .carousel-item {
+          flex: 0 0 auto;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 0 18px rgba(0, 255, 213, 0.12);
+          transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        
+        .carousel-item:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 32px rgba(0, 255, 213, 0.4);
+        }
+        
+        .carousel-item img {
+          height: 310px;
+          width: auto;
+          display: block;
+        }
+        
+        /* strzałki wewnątrz */
+        .carousel-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0, 0, 0, 0.45);
+          backdrop-filter: blur(6px);
+          border: 1px solid rgba(0, 255, 213, 0.25);
+          color: #00ffd5;
+          font-size: 18px;
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          cursor: pointer;
+          z-index: 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.2s, border-color 0.2s;
+        }
+        
+        .carousel-btn:hover {
+          background: rgba(0, 255, 213, 0.18);
+          border-color: rgba(0, 255, 213, 0.6);
+        }
+        
+        .carousel-btn.prev { left: 10px; }
+        .carousel-btn.next { right: 10px; }
+        
+        /* fade edges */
+        .carousel-wrapper::before,
+        .carousel-wrapper::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          width: 60px;
+          height: 100%;
+          z-index: 5;
+          pointer-events: none;
+        }
+        
+        
+        
+        
+        @media (max-width: 768px) {
+
+          .carousel-wrapper {
+
+            right: 0%;
+          }
+            
+            
+
+          .carousel-item img {
+            height: 130px;
+            
+          }
+          .carousel-btn {
+            width: 30px;
+            height: 30px;
+            font-size: 14px;
+          }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   📱 20. MOBILE RESPONSIVE
    ========================================================= */
 
 @media (max-width: 768px) {
-  
 
-
-  #cameraButton,
-  #color-button {
-    display: none;
+  /* 🔥 MOBILE MA SCROLL */
+  body {
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
-  /* Wyłącz ciężkie rzeczy */
+  /* Ukryj ciężkie elementy */
   .scene,
   .stars,
   .axis {
     display: none;
   }
 
-  /* Video */
+  /* Ukryj 3D buttons */
+  #cameraButton
+ {
+    display: none;
+  }
+
+  #color-button {
+    
+    position: relative;
+    right: auto;
+   
+    left: 50%;
+    
+  }
+
+
+  
+
+  /* =====================================================
+     🔥 KOLEJNOŚĆ MOBILE
+     ===================================================== */
+
+  /* 1. TEKST */
+  .text-switcher {
+
+    /* mobile center */
+    margin: 0 auto;
+
+    padding: 20px;
+
+    text-align: center;
+
+    width: 90%;
+  }
+
+  .lang-buttons {
+
+    justify-content: left;
+  }
+
+  .lang-text {
+
+    text-align: center;
+
+    max-width: 100%;
+  
+  }
+
+  /* 2. VIDEO */
   #video-carousel,
   #video-carousel2 {
     position: relative;
@@ -730,37 +957,25 @@ canvas {
     top: auto;
     right: auto;
 
-    margin: 100px auto 40px auto;
+    margin: 30px auto;
 
     max-width: 90%;
   }
 
-  /* Socialki dół */
-  .socials,
-  .socials2,
-  .cv {
-    position: relative;
+  /* 3. LOGO / ZDJĘCIA */
+  .container {
+    flex-direction: column;
     
-    
-    
+    align-items: center;
 
-    
+    margin-top: 40px;
   }
 
-  .socials {
-    left: 20%;
-    bottom: 50%;
+  .box {
+    max-width: 90%;
   }
 
-  .cv {
-    left: 45%;
-  }
-
-  .socials2 {
-    left: 70%;
-  }
-
-  /* Telefon/mail */
+  /* 4. TEL / EMAIL */
   .TEL {
     position: relative;
 
@@ -769,12 +984,30 @@ canvas {
 
     width: 100%;
 
-    padding: 20px;
-
     text-align: center;
+
+    margin-top: 40px;
   }
 
-  /* Menu */
+  /* 5. SOCIALS */
+  .socials,
+  .socials2,
+  .cv {
+    position: relative;
+
+    top: auto;
+    right: auto;
+    left: 20%;
+    text-align: center;
+    display: inline-block;
+
+    font-size: 35px;
+
+    margin: 20px;
+    
+  }
+
+  /* MENU */
   .INSTAGRAM,
   .NFT,
   .GAME,
@@ -789,75 +1022,24 @@ canvas {
     text-align: center;
   }
 
-  /* Kontener */
-  .container {
-    flex-direction: column;
-
-    align-items: center;
+  /* BACK zawsze na dole */
+  #Back {
+    
+    position: relative;
+    width: 100%;
+    top: auto;
+    right: auto;
+    transform: translateX(-50%);
+    
   }
 
-  /* Logo */
-  .box {
-    max-width: 90%;
-  }
-
-  /* Text */
-  .lang-text {
-    text-align: left;
-  }
-
-  /* H4 */
+  /* Teksty */
   h4 {
-    top:10%;
     text-align: center;
   }
 
-  
-
+  .lang-text {
+    text-align: left;
+  }
 }
 
-#cameraButton {
-  background-color: rgba(255, 255, 255, 0);
-  color: rgb(255, 255, 255);
-  border: none;
-  
-  height: 50px;
-  text-align: center;
-  font-size: 25px;
-  position: absolute;
-  top: 95%;
-  left: 65%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  
-}
-
-#cameraButton:hover {
-    color: #00ffd5;
-  cursor: pointer;
-}
-
-
-#color-button {
-  background-color: rgba(255, 255, 255, 0);
-  color: rgb(255, 255, 255);
-  border: none;
-  
-  height: 50px;
-  text-align: center;
-  font-size: 25px;
-  position: absolute;
-  top: 95%;
-  left: 35%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  
-}
-
-#color-button:hover {
-    color: #00ffd5;
-  cursor: pointer;
-
-  
-
-}

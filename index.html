@@ -70,17 +70,19 @@
       
      <div class="text-switcher"data-aos="fade-right" data-aos-duration="9000" data-aos-delay="700" >
 
-      <!-- 🔥 BUTTONY -->
-      <div class="lang-buttons">
-
-        <div id="title">MY PORTFOLIO</div>
-        <button class="lang-btn active" data-lang="pl">PL</button>
-        <button class="lang-btn" data-lang="en">ENG</button>
-      </div>
+      
     
       <!-- 🔥 TEKSTY -->
       <div class="text-container">
-    
+        <div id="title">PORTFOLIO</div>
+        <div class="lang-buttons">
+
+        
+          <button class="lang-btn active" data-lang="pl">PL</button>
+          <button class="lang-btn" data-lang="en">ENG</button>
+        </div>
+
+        
         <p id="pl-text" class="lang-text active">
           Cześć, jestem Szymon Głowacki — kreatywny projektant z Szczecina. Mam 28 lat i całe życie towarzyszyła mi sztuka: od wczesnych lat chodziłem na zajęcia z rysunku, a z czasem rozwinąłem swoje pasje w kierunku graffiti i tworzenia gier komputerowych. To właśnie ta droga ukształtowała mój zmysł estetyczny i wrażliwość na formę, kolor i kompozycję, które dziś przekładam na profesjonalne projekty.
         </p>
@@ -89,7 +91,7 @@
           Hi, I'm Szymon Głowacki — a creative designer from Szczecin, Poland. I'm 28 years old, and art has been part of my life for as long as I can remember. From an early age I attended drawing classes, and over time my passions grew into graffiti and game development. That journey shaped my aesthetic sensibility and my eye for form, colour, and composition — all of which I now bring into my professional work.
 
         </p>
-    
+        
       </div>
     </div>
      </div>
@@ -156,6 +158,9 @@
         </div> -->
 
 
+        
+
+
 
         <div class="TEL">
             
@@ -220,7 +225,9 @@
 
     <button id="cameraButton" >View 3D Object</button>
 
-    
+    <div id="button-container">
+      <button id="color-button" >Change Color</button>
+      </div>
 
     <script>
       let clicks = 0;
@@ -229,9 +236,11 @@
       document.getElementById("cameraButton").addEventListener("click", function onMouseClick(event) {
         if (clicks < 3) {
           camera.position.x -= 300;
+          camera.position.z -= -30;
           clicks++;
         } else {
           camera.position.x = initialCameraPosition.x;
+          camera.position.z = initialCameraPosition.z;
           clicks = 0;
         }
       });
@@ -243,37 +252,37 @@
 
 
 
-<div id="button-container">
-<button id="color-button" >Change Color</button>
-</div>
+
 
     
 
 
 
 
-    <script>
+<script>
+  // Przywróć kolor przy ładowaniu
+  const savedBg = localStorage.getItem("bgColor");
+  if (savedBg) document.body.style.background = savedBg;
 
-     var button = document.getElementById("color-button");
-      var click = 0;
+  var button = document.getElementById("color-button");
+  var click = 0;
 
-     button.addEventListener("click", function() {
-        clicks++;
-        if (clicks % 4 === 1) {
-          document.body.style.background = "linear-gradient(to right top, #f81313, rgb(99,99,99))";
-        } else if (clicks % 4 === 2) {
-          document.body.style.background = "linear-gradient(to right top, #056b3e , rgb(99,99,99))";
-
-        } else if (clicks % 4 === 3) {
-          document.body.style.background = "linear-gradient(to right top, black , rgb(99,99,99))";
-
-        } else {
-          document.body.style.background = "linear-gradient(to right top, rgb(67, 67, 67), rgb(99,99,99))";
-        }
-    });
-
-     
-    </script>
+  button.addEventListener("click", function() {
+    clicks++;
+    let bg;
+    if (clicks % 4 === 1) {
+      bg = "linear-gradient(to right top, #f81313, rgb(99,99,99))";
+    } else if (clicks % 4 === 2) {
+      bg = "linear-gradient(to right top, #056b3e, rgb(99,99,99))";
+    } else if (clicks % 4 === 3) {
+      bg = "linear-gradient(to right top, black, rgb(99,99,99))";
+    } else {
+      bg = "linear-gradient(to right top, rgb(67,67,67), rgb(99,99,99))";
+    }
+    document.body.style.background = bg;
+    localStorage.setItem("bgColor", bg);
+  });
+</script>
    
     
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
