@@ -73,68 +73,203 @@
 
 
 
+
+
+
+
+
+
+
+
+<!-- VIDEO CARUSEL Z FULL SCREEN  -->
+
 <script>
   window.addEventListener('DOMContentLoaded', () => {
-  
-    const slides = document.querySelectorAll('.slide');
-    const container = document.querySelector('.video-container');
-  
+
+    const slides = Array.from(document.querySelectorAll('.slide'));
     let index = 0;
-    let interval;
-  
-    function showSlide(i){
-      slides.forEach(video => {
-        video.pause();
-        video.classList.remove('active');
-      });
-  
+    let autoInterval;
+
+    // ── CAROUSEL ──────────────────────────────────────────
+    function showSlide(i) {
+      slides.forEach(v => { v.pause(); v.classList.remove('active'); });
       slides[i].classList.add('active');
-  
-      // ▶ play video safely
-      const playPromise = slides[i].play();
-      if (playPromise !== undefined) {
-        playPromise.catch(()=>{});
-      }
-  
-      
+      slides[i].play().catch(() => {});
     }
+
+    function nextSlide() { index = (index + 1) % slides.length; showSlide(index); }
+    function prevSlide() { index = (index - 1 + slides.length) % slides.length; showSlide(index); }
+    function startAuto() { autoInterval = setInterval(nextSlide, 7000); }
+    function resetAuto() { clearInterval(autoInterval); startAuto(); }
+
+    document.getElementById('next').onclick = () => { nextSlide(); resetAuto(); };
+    document.getElementById('prev').onclick = () => { prevSlide(); resetAuto(); };
+
+    showSlide(0);
+    startAuto();
+
+    // ── LIGHTBOX HTML ─────────────────────────────────────
+    document.body.insertAdjacentHTML('beforeend', `
+      <div id="vlb">
+        <button class="vlb-arrow" id="vlb-prev">&#8592;</button>
+        <div id="vlb-inner">
+          <video id="vlb-video" controls autoplay loop playsinline></video>
+          <button id="vlb-back">Back</button>
+        </div>
+        <button class="vlb-arrow" id="vlb-next">&#8594;</button>
+      </div>
+    `);
+
+    // ── LIGHTBOX CSS ──────────────────────────────────────
+    document.head.insertAdjacentHTML('beforeend', `
+      <style>
+        #vlb {
+          display: none;
+          position: fixed;
+          inset: 0;
+          background: rgba(0,0,0,0.95);
+          z-index: 9999;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+        }
+        #vlb.open { display: flex; }
+
+        #vlb-inner {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #vlb-video {
+          width: 88vw;
+          max-width: 1000px;
+          max-height: 78vh;
+          border-radius: 10px;
+          outline: none;
+          background: #000;
+        }
+
+        .vlb-arrow {
+          background: rgba(0,255,213,0.08);
+          border: 1px solid rgba(0,255,213,0.35);
+          color: #00ffd5;
+          font-size: 22px;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          cursor: pointer;
+          flex-shrink: 0;
+          transition: background 0.2s;
+        }
+        .vlb-arrow:hover { background: rgba(0,255,213,0.2); }
+
+        #vlb-back {
+          margin-top: 18px;
+          padding: 9px 26px;
+          background: transparent;
+          border: 1px solid rgba(0,255,213,0.35);
+          color: #00ffd5;
+          font-size: 14px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background 0.2s;
+        }
+        #vlb-back:hover { background: rgba(0,255,213,0.12); }
+
+        .slide { cursor: pointer; }
+
+
   
-    function nextSlide(){
-      index = (index + 1) % slides.length;
-      showSlide(index);
+    
+
+      </style>
+
+
+    `);
+
+    // ── LIGHTBOX LOGIKA ───────────────────────────────────
+    const vlb      = document.getElementById('vlb');
+    const vlbVideo = document.getElementById('vlb-video');
+    let lbIndex    = 0;
+
+    function getSrc(videoEl) {
+      const s = videoEl.querySelector('source');
+      return s ? s.getAttribute('src') : videoEl.getAttribute('src');
     }
-  
-    function prevSlide(){
-      index = (index - 1 + slides.length) % slides.length;
-      showSlide(index);
+
+    function loadInLightbox(i) {
+      lbIndex = (i + slides.length) % slides.length;
+      const src = getSrc(slides[lbIndex]);
+      vlbVideo.src = src;
+      vlbVideo.muted = true;
+      vlbVideo.load();
+      vlbVideo.play().catch(() => {});
     }
-  
-    // 🔥 BUTTONY
-    document.getElementById('next').onclick = () => {
-      nextSlide();
-      resetAuto();
-    };
-  
-    document.getElementById('prev').onclick = () => {
-      prevSlide();
-      resetAuto();
-    };
-  
-    // 🔥 AUTO SLIDE
-    function startAuto(){
-      interval = setInterval(nextSlide, 7000);
+
+    function openLightbox(i) {
+      clearInterval(autoInterval);
+      document.body.style.overflow = 'hidden';
+      vlb.classList.add('open');
+      loadInLightbox(i);
     }
-  
-    function resetAuto(){
-      clearInterval(interval);
+
+    function closeLightbox() {
+      vlbVideo.pause();
+      vlbVideo.removeAttribute('src');
+      vlbVideo.load();
+      vlb.classList.remove('open');
+      document.body.style.overflow = '';
       startAuto();
     }
-  
-    showSlide(index);
-    startAuto();
-  
+
+    // klik w każdy film z osobna
+    slides.forEach((video, i) => {
+      video.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(i);
+      });
+    });
+
+    // strzałki lightboxa
+    document.getElementById('vlb-prev').addEventListener('click', (e) => {
+      e.stopPropagation();
+      loadInLightbox(lbIndex - 1);
+    });
+
+    document.getElementById('vlb-next').addEventListener('click', (e) => {
+      e.stopPropagation();
+      loadInLightbox(lbIndex + 1);
+    });
+
+    // zamknij
+    document.getElementById('vlb-back').addEventListener('click', closeLightbox);
+
+    vlb.addEventListener('click', (e) => {
+      if (e.target === vlb) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!vlb.classList.contains('open')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowRight')  loadInLightbox(lbIndex + 1);
+      if (e.key === 'ArrowLeft')   loadInLightbox(lbIndex - 1);
+    });
+
   });
-  </script>
+</script>
+
+
+<!--      DKJFOKDSJFKSDVODFHOHOFAJV     -->
+
+
+
+
+
+
+
+
+
 
 
 
@@ -203,7 +338,7 @@ I'm constantly learning and following new technologies to stay current in the in
       </video>
 
       <video class="slide active" muted playsinline loop>
-        <source src="./gp1.mp4" type="video/mp4">
+        <source src="./gp1.mp4" type="video/mp4" >
       </video>
 
       <video class="slide active" muted playsinline loop>
@@ -215,7 +350,7 @@ I'm constantly learning and following new technologies to stay current in the in
       </video>
 
       <video class="slide active" muted playsinline loop>
-        <source src="./gp4.mp4" type="video/mp4">
+        <source src="./gp4.mp4" type="video/mp4" >
       </video>
 
       <video class="slide active" muted playsinline loop>

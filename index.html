@@ -139,7 +139,7 @@
         <div class="NFT" data-aos="zoom-in" data-aos-duration="9000">
 
             <a href="nftcrypto.html">
-            <button id="cameraButton4" class="neon-button">PHOTOSHOP</button>
+            <button id="cameraButton4" class="neon-button">DIGITAL ART</button>
             </a>
 
         
@@ -212,8 +212,7 @@
     
 
         <a class="cv" href="CV2026.pdf" download>  
-               
-
+          
             <ion-icon name="download-outline">cv</ion-icon>
 
         </a>
@@ -272,20 +271,29 @@
   var click = 0;
 
   button.addEventListener("click", function() {
-    clicks++;
-    let bg;
-    if (clicks % 4 === 1) {
-      bg = "linear-gradient(to right top, #f81313, rgb(99,99,99))";
-    } else if (clicks % 4 === 2) {
-      bg = "linear-gradient(to right top, #056b3e, rgb(99,99,99))";
-    } else if (clicks % 4 === 3) {
-      bg = "linear-gradient(to right top, black, rgb(99,99,99))";
-    } else {
-      bg = "linear-gradient(to right top, rgb(67,67,67), rgb(99,99,99))";
-    }
-    document.body.style.background = bg;
-    localStorage.setItem("bgColor", bg);
-  });
+  clicks++;
+  let bg;
+  const step = clicks % 7;
+
+  if (step === 1) {
+    bg = "linear-gradient(to right top, rgb(67,67,67), rgb(99,99,99))";
+  } else if (step === 2) {
+    bg = "linear-gradient(to right top, #f81313, rgb(99,99,99))";
+  } else if (step === 3) {
+    bg = "linear-gradient(to right top, #0000ff, rgb(99,99,99))";
+  } else if (step === 4) {
+    bg = "linear-gradient(to right top, black, rgb(99,99,99))";
+  } else if (step === 5) {
+    bg = "linear-gradient(to right top, #008080, rgb(99,99,99))";
+  } else if (step === 6) {
+    bg = "linear-gradient(to right top, #003d2d, rgb(99,99,99))";
+  } else {
+    bg = "linear-gradient(to right top, rgb(67,67,67), rgb(99,99,99))";
+  }
+
+  document.body.style.background = bg;
+  localStorage.setItem("bgColor", bg);
+});
 </script>
    
     
