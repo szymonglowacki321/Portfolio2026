@@ -343,25 +343,83 @@ I have designed covers and promotional flyers that received positive feedback an
     
       
     <script>
-      const track    = document.getElementById("carouselTrack");
-      const prevBtn  = document.getElementById("prevBtn");
-      const nextBtn  = document.getElementById("nextBtn");
+      const track   = document.getElementById("carouselTrack");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
     
-      let isDown     = false;
-      let startX     = 0;
-      let scrollLeft = 0;
+      let isDown  = false;
+      let startX  = 0;
+      let scrollL = 0;
+      let autoTimer = null;
+      const SPEED = 0.5;
     
-      // przyciski
+      // ── AUTO SCROLL ───────────────────────────────────────
+      function autoScroll() {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+    
+        // zatrzymaj na końcu
+        if (track.scrollLeft >= maxScroll - 1) {
+          stopAuto();
+          nextBtn.style.opacity = "0.1";
+          return;
+        }
+    
+        track.scrollLeft += SPEED;
+      }
+    
+      function startAuto() {
+        stopAuto();
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        // nie startuj jeśli już na końcu
+        if (track.scrollLeft >= maxScroll - 1) return;
+        autoTimer = setInterval(autoScroll, 16);
+      }
+    
+      function stopAuto() {
+        if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+      }
+    
+      startAuto();
+    
+      // ── PRZYCISKI ─────────────────────────────────────────
       prevBtn.addEventListener("click", () => {
-        track.scrollBy({ left: -260, behavior: "smooth" });
+        stopAuto(); // zatrzymaj na stałe po kliknięciu
+        track.scrollBy({ left: -280, behavior: "smooth" });
       });
+    
       nextBtn.addEventListener("click", () => {
-        track.scrollBy({ left: 260, behavior: "smooth" });
+        stopAuto(); // zatrzymaj na stałe po kliknięciu
+        track.scrollBy({ left: 280, behavior: "smooth" });
       });
     
-      
+      // ── PRZECIĄGANIE MYSZĄ ────────────────────────────────
+      track.addEventListener("mousedown", (e) => {
+        isDown = true;
+        startX = e.pageX - track.offsetLeft;
+        scrollL = track.scrollLeft;
+        track.style.cursor = "grabbing";
+        stopAuto();
+      });
+      track.addEventListener("mouseleave", () => {
+        if (!isDown) return;
+        isDown = false;
+        track.style.cursor = "default";
+      });
+      track.addEventListener("mouseup", () => {
+        isDown = false;
+        track.style.cursor = "default";
+      });
+      track.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        track.scrollLeft = scrollL - (x - startX) * 1.5;
+      });
     
-      // schowaj/pokaż strzałki
+      // ── DOTYK (mobile) ────────────────────────────────────
+      track.addEventListener("touchstart", () => stopAuto(), { passive: true });
+    
+      // ── OPACITY STRZAŁEK ──────────────────────────────────
       track.addEventListener("scroll", () => {
         prevBtn.style.opacity = track.scrollLeft > 10 ? "1" : "0.1";
         nextBtn.style.opacity =
@@ -369,7 +427,7 @@ I have designed covers and promotional flyers that received positive feedback an
             ? "1" : "0.1";
       });
     
-      prevBtn.style.opacity = "0.3";
+      prevBtn.style.opacity = "0.1";
     </script>
 
     <!-- <script>
